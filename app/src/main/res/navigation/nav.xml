@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@+id/navigation_home" >
+
+    <!--
+        fragment untuk halaman utama, pencarian, dan profil
+        id: nama view
+        name: lokasi kelas handler nya
+        layout: xml nya
+    -->
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.u_binusportal.fragment.HalamanUtama.HalamanUtamaFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/halaman_utama" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.u_binusportal.fragment.Pencarian.PencarianFragment"
+        android:label="@string/title_pencarian"
+        tools:layout="@layout/pencarian" />
+
+    <fragment
+        android:id="@+id/navigation_profil"
+        android:name="com.u_binusportal.fragment.Profil.ProfilFragment"
+        android:label="@string/title_profil"
+        tools:layout="@layout/profil" />
+
+
+
+</navigation>
