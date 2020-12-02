@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/profile_pic"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="88dp"
+                android:layout_height="93dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="30dp"
@@ -47,26 +47,18 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     tools:text="Ronaldo" />
 
                 <TextView
-                    android:id="@+id/profile_classes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    tools:text="UMKM" />
-
-                <TextView
                     android:id="@+id/profile_phone_number"
-                    android:layout_width="wrap_content"
+                    android:layout_width="146dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     tools:text="081291358587" />
 
             </LinearLayout>
