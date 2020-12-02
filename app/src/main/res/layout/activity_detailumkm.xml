@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background">
+
+            <RelativeLayout
+                android:id="@+id/imgUser"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_margin="15dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_launcher_background"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_launcher_foreground"
+                    />
+            </RelativeLayout>
+    <!--            nama UMKM -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/imgUser"
+                    android:id="@+id/namaUMKM"
+                    android:text="Nama UMKM"
+                    android:textSize="22sp"/>
+
+    <!--        Deskripsi UMKM-->
+                <TextView
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_below="@id/namaUMKM"
+                    android:text="Deskripsi (maks 100 kata)"
+                    android:textSize="18sp"
+                    android:maxLines="3"
+                    android:maxLength="100"
+
+                />
+
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
+        android:layout_below="@id/header"
+        android:layout_marginTop="7dp">
+
+        <RelativeLayout
+            android:id="@+id/list_produk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/listviewproduk"
+                android:layout_width="377dp"
+                android:layout_height="449dp" />
+
+            <TextView
+                android:id="@+id/tekspertanyaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/listviewproduk"
+                android:layout_marginStart="25sp"
+                android:layout_marginLeft="25sp"
+                android:text="Pertanyaan yang diajukan"
+                android:textSize="18sp" />
+
+            <ListView
+                android:id="@+id/pertanyaan_yang_diberikan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tekspertanyaan" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
