@@ -20,7 +20,7 @@ public class ProfilFragment extends Fragment {
     private TextView PhoneNumber;
     private View EditProfile;
     private View LogOut;
-//
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_profile, container, false);
 
