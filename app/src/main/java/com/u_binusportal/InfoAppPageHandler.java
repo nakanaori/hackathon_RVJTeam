@@ -1,6 +1,7 @@
 package com.u_binusportal;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,19 +20,25 @@ public class InfoAppPageHandler extends AppCompatActivity {
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
-    protected void onCreateView(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.v("Joevian", "success");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_app);
 
         List<Fragment> list = new ArrayList<>();
         list.add(new PageOne());
         list.add(new PageTwo());
         list.add(new PageThree());
 
+        int sz = list.size();
+        Log.v("test" + sz, "size");
+
+        setContentView(R.layout.intro_app);
         pager = findViewById(R.id.vw_page);
-        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
+        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),1, list);
 
         pager.setAdapter(pagerAdapter);
+
     }
 
 }

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@id/faq">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_with_stroke"
+        android:id="@+id/faqHeader"
+        android:padding="5dp"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/faq_icon"
+            android:id="@+id/faqIcon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pertanyaan yang sering ditanyakan"
+            android:layout_toEndOf="@+id/faqIcon"
+            android:layout_toRightOf="@+id/faqIcon"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            />
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/faqDetails"
+            android:layout_below="@id/faqHeader"
+            android:background="@drawable/background_without_stroke">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/faq"
+        android:layout_margin="10dp"
+        android:id="@+id/suggestion">
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/suggestionHeader"
+        android:background="@drawable/background_with_stroke"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/suggestion_icon"
+            android:id="@+id/suggestionIcon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kritik dan saran"
+            android:layout_toEndOf="@+id/suggestionIcon"
+            android:layout_toRightOf="@+id/suggestionIcon"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/suggestionDetails"
+            android:layout_below="@id/suggestionHeader"
+            android:background="@drawable/background_without_stroke">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/suggestion"
+        android:id="@+id/contactUs"
+        android:layout_margin="10dp"
+        >
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_with_stroke"
+        android:id="@+id/contactUsHeader"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/contact_us_icon"
+            android:id="@+id/contactUsIcon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hubungi kami"
+            android:layout_toEndOf="@+id/contactUsIcon"
+            android:layout_toRightOf="@+id/contactUsIcon"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contactUsDetails"
+            android:layout_below="@id/contactUsHeader"
+            android:background="@drawable/background_without_stroke">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

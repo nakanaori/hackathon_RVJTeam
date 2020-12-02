@@ -2,13 +2,26 @@ package com.u_binusportal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.loading);
+        call();
+    }
+    public void call() {
+        Intent i = new Intent(this, InfoAppPageHandler.class );
+        startActivity(i);
+    }
+
+    // ini cuma untuk testing fragment dengan navigasi aja
+    public void toFragment(View view) {
+        Intent i = new Intent(this, FragmentHandler.class );
+        startActivity(i);
     }
 }

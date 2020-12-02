@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:background="@color/skyBlue">
 
-
     <ImageView
         android:id="@+id/imageViewListHU"
         android:layout_width="57dp"
@@ -19,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/person_icon" />
 
     <TextView
         android:id="@+id/textViewHeader"
