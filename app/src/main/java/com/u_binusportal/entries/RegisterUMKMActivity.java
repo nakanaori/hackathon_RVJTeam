@@ -40,7 +40,7 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         RegisterUMKMButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startRegisterUser();
+//                startRegisterUser();
             }
         });
     }

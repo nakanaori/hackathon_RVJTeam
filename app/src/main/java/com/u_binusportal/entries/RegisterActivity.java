@@ -6,11 +6,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.u_binusportal.R;
+import com.u_binusportal.User;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText NameField;
@@ -34,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
         EmailField = findViewById(R.id.input_email_daftar_user);
 
         RegisterButton = findViewById(R.id.button_daftar_user);
-
         Progress = new ProgressDialog(this);
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
@@ -45,49 +46,45 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void startRegisterUser(){
+    private void startRegisterUser() {
         String email = EmailField.getText().toString().trim();
         String password = PasswordField.getText().toString().trim();
         String confirm = ConfirmPasswordField.getText().toString().trim();
         String name = NameField.getText().toString().trim();
         String phonenumber = PhoneNumberField.getText().toString().trim();
 
-        if (TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             NameField.requestFocus();
             NameField.setError("Empty name");
-        } else if (TextUtils.isEmpty(password)){
 
-            // Set the error message
+        } else if (TextUtils.isEmpty(password)) {
             PasswordField.requestFocus();
             PasswordField.setError("Empty password");
 
         } else if (TextUtils.isEmpty(confirm)) {
-
-            // Set the error message
             ConfirmPasswordField.requestFocus();
             ConfirmPasswordField.setError("Empty password");
 
-        } else if (TextUtils.isEmpty(phonenumber)){
+        } else if (TextUtils.isEmpty(phonenumber)) {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Empty phone number");
 
-        } else if (TextUtils.isEmpty(email)) {
-
-            // Set the error message
-            EmailField.requestFocus();
-            EmailField.setError("Empty email");
-
-        }  else {
+        } else {
 
             if (!password.equals(confirm)) { // Password and confirm aren't equal
 
                 // Set the error message
                 ConfirmPasswordField.requestFocus();
                 ConfirmPasswordField.setError("Password didn't match");
-            }else{
+            } else {
                 Progress.setMessage("Signing up ...");
                 Progress.show();
+
+                User newUser = new User(name,password,email,phonenumber,null);
+                    Progress.dismiss();
+                    Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG);
+
             }
         }
-
+    }
 }

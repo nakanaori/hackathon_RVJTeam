@@ -5,17 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.u_binusportal.entries.LoginActivity;
+import com.u_binusportal.entries.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.loading);
+        setContentView(R.layout.intro_app);
+
         call();
     }
     public void call() {
-        Intent i = new Intent(this, InfoAppPageHandler.class );
+        Intent i = new Intent(this, LoginActivity.class );
         startActivity(i);
     }
 
