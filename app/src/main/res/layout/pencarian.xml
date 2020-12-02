@@ -17,14 +17,14 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="masukkan kata kunci. contoh: Elektronika"
+        android:text="Contoh: produk elektronika"
         android:textColor="#323131"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -64,7 +64,7 @@
 
         <Button
             android:id="@+id/button_keyword1"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
@@ -78,7 +78,7 @@
 
         <Button
             android:id="@+id/button_keyword2"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="37dp"
             android:layout_marginEnd="40dp"
@@ -92,7 +92,7 @@
 
         <Button
             android:id="@+id/button_keyword3"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
@@ -107,7 +107,7 @@
         <Button
             android:id="@+id/button_keyword4"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
@@ -121,7 +121,7 @@
 
         <Button
             android:id="@+id/button_keyword5"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
@@ -136,7 +136,7 @@
         <Button
             android:id="@+id/button_keyword6"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
@@ -150,7 +150,7 @@
 
         <Button
             android:id="@+id/button_keyword7"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
@@ -167,7 +167,7 @@
         <Button
             android:id="@+id/button_keyword8"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
@@ -204,13 +204,13 @@
 
         <Button
             android:id="@+id/button_kategori1"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:background="@color/lightestGreen"
-            android:text="kategori1"
+            android:text="makanan"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -218,13 +218,13 @@
 
         <Button
             android:id="@+id/button_kategori2"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="37dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="kategori2"
+            android:text="minuman"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -232,13 +232,13 @@
 
         <Button
             android:id="@+id/button_kategori3"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:background="@color/lightestGreen"
-            android:text="kategori3"
+            android:text="pakaian"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -247,13 +247,13 @@
         <Button
             android:id="@+id/button_kategori4"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="kategori4"
+            android:text="hobi"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -261,13 +261,13 @@
 
         <Button
             android:id="@+id/button_kategori5"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:background="@color/lightestGreen"
-            android:text="kategori5"
+            android:text="kosmetik"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -275,13 +275,13 @@
 
         <Button
             android:id="@+id/button_kategori6"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="keyword6"
+            android:text="pertanian"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -289,13 +289,13 @@
 
         <Button
             android:id="@+id/button_kategori7"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:background="@color/lightestGreen"
-            android:text="kategori7"
+            android:text="kesehatan"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -304,13 +304,13 @@
         <Button
             android:id="@+id/button_kategori8"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="keyword8"
+            android:text="elektronik"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -318,13 +318,13 @@
 
         <Button
             android:id="@+id/button_kategori9"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:background="@color/lightestGreen"
-            android:text="kategori9"
+            android:text="furniture"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -333,13 +333,13 @@
         <Button
             android:id="@+id/button_kategori10"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="keyword10"
+            android:text="souvenir"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -347,14 +347,14 @@
 
         <Button
             android:id="@+id/button_kategori11"
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="30dp"
             android:background="@color/lightestGreen"
-            android:text="kategori11"
+            android:text="jasa"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -364,13 +364,13 @@
         <Button
             android:id="@+id/button_kategori12"
 
-            android:layout_width="160dp"
+            android:layout_width="120dp"
             android:layout_height="25dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/lightestGreen"
-            android:text="keyword12"
+            android:text="lain-lain"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
