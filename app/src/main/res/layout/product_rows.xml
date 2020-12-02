@@ -7,10 +7,8 @@
     android:padding="15dp">
     
     <ImageView
-
         android:layout_width="100dp"
         android:layout_height="100dp"
-
         android:background="@drawable/ic_launcher_background"
         android:src="@drawable/ic_launcher_foreground"
         android:id="@+id/productImage"
@@ -25,7 +23,6 @@
             android:layout_height="wrap_content"
             android:text="Product Name"
             android:textSize="18sp"
-
             android:id="@+id/productName"
             android:textAlignment="center"
             android:gravity="center_horizontal"
