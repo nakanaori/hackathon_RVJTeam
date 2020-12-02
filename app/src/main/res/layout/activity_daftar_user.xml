@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cyan">
-
+    
     <EditText
         android:id="@+id/input_konfirmasi_password_daftar_user"
         android:layout_width="302dp"

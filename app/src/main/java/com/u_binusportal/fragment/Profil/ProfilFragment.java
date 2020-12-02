@@ -32,8 +32,8 @@ public class ProfilFragment extends Fragment {
         LogOut = rootView.findViewById(R.id.menu_logout);
 
         // Set up the firebase attributes
-        mAuth = FirebaseAuth.getInstance();
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
+//        mAuth = FirebaseAuth.getInstance();
+//        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
 
         // Set up the buttons
         EditProfile.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +41,7 @@ public class ProfilFragment extends Fragment {
             public void onClick(View view) {
 
                 // Go to EditProfileActivity
-                startActivity(new Intent(getActivity(), EditProfileActivity.class));
+//                startActivity(new Intent(getActivity(), EditProfileActivity.class));
 
             }
         });
@@ -50,12 +50,12 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                mAuth.signOut();
+//                mAuth.signOut();
 
             }
         });
 
-        retrieveDataAndSetupTheViews();
+//        retrieveDataAndSetupTheViews();
 
         return rootView;
     }
