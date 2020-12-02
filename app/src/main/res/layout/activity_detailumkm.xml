@@ -11,6 +11,7 @@
             android:background="@drawable/background_with_stroke"
             android:padding="15dp">
 
+
             <RelativeLayout
                 android:id="@+id/imgUser"
                 android:layout_width="wrap_content"
@@ -54,6 +55,7 @@
 
         </RelativeLayout>
 
+
     <ScrollView
         android:id="@+id/body"
         android:layout_width="match_parent"
@@ -76,11 +78,13 @@
                 android:id="@+id/tekspertanyaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="25sp"
                 android:layout_marginLeft="25sp"
                 android:text="Pertanyaan yang diajukan"
                 android:textSize="18sp"
                 android:layout_marginVertical="20dp"/>
+
 
             <ListView
                 android:id="@+id/pertanyaan_yang_diberikan"
@@ -91,4 +95,5 @@
 
 
     </ScrollView>
+
 </RelativeLayout>
