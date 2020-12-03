@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.u_binusportal.activity.EditProfileUMKM;
+import com.u_binusportal.activity.UMKMDetails;
 import com.u_binusportal.activity.entriesActivities.entries.LoginActivity;
 import com.u_binusportal.handlers.FragmentHandler;
 
@@ -14,12 +16,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_app);
-
-        call();
+        setContentView(R.layout.loading);
+//        call();
     }
     public void call() {
-        Intent i = new Intent(this, LoginActivity.class );
+        Intent i = new Intent(this, UMKMDetails.class );
         startActivity(i);
     }
 

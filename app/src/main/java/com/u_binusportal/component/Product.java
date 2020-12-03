@@ -10,6 +10,7 @@ public class Product {
     private long productPrice;
     private int productImage;
     private Uri imgURI;
+    private String umkmId;
 
 
     public Product(String productName, String productDescription, long productPrice,
