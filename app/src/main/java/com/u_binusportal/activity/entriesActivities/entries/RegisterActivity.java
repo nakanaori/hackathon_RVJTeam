@@ -67,12 +67,15 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             PasswordField.requestFocus();
             PasswordField.setError("Kata sandi tidak boleh kosong");
+
         } else if (TextUtils.isEmpty(confirm)) {
             ConfirmPasswordField.requestFocus();
             ConfirmPasswordField.setError("Kata sandi tidak boleh kosong");
+
         } else if (TextUtils.isEmpty(phonenumber)) {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Nomor telepon tidak boleh kosong");
+
         } else if (TextUtils.getTrimmedLength(phonenumber)!=12 && TextUtils.getTrimmedLength(phonenumber)!=13) {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Nomor telepon harus diantara 12-13 digit");
