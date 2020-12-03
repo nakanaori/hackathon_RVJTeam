@@ -16,23 +16,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.u_binusportal.FragmentHandler"
+            android:name="com.u_binusportal.handlers.FragmentHandler"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.InfoAppPageHandler">
+        <activity android:name="com.u_binusportal.handlers.InfoAppPageHandler">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.entries.LoginActivity">
+        <activity android:name="com.u_binusportal.activity.entriesActivities.entriesActivities.LoginActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.entries.RegisterActivity">
+        <activity android:name="com.u_binusportal.activity.entriesActivities.entriesActivities.RegisterActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

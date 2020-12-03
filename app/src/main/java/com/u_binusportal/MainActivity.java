@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.u_binusportal.entries.LoginActivity;
-import com.u_binusportal.entries.RegisterActivity;
+import com.u_binusportal.activity.entriesActivities.entries.LoginActivity;
+import com.u_binusportal.handlers.FragmentHandler;
 
 public class MainActivity extends AppCompatActivity {
 
