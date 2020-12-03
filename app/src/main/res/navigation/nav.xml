@@ -15,19 +15,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.u_binusportal.fragment.HalamanUtama.HalamanUtamaFragment"
+        android:name="com.u_binusportal.activity.fragmentActivities.fragment.HalamanUtamaFragment"
         android:label="@string/title_home"
         tools:layout="@layout/halaman_utama" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.u_binusportal.fragment.Pencarian.PencarianFragment"
+        android:name="com.u_binusportal.activity.fragmentActivities.fragment.PencarianFragment"
         android:label="@string/title_pencarian"
         tools:layout="@layout/pencarian" />
 
     <fragment
         android:id="@+id/navigation_profil"
-        android:name="com.u_binusportal.fragment.Profil.ProfilFragment"
+        android:name="com.u_binusportal.activity.fragmentActivities.fragment.ProfilFragment"
         android:label="@string/title_profil"
         tools:layout="@layout/profil" />
 
