@@ -30,12 +30,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.entriesActivities.entriesActivities.LoginActivity">
+        <activity android:name="com.u_binusportal.activity.entriesActivities.entries.LoginActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.entriesActivities.entriesActivities.RegisterActivity">
+        <activity android:name="com.u_binusportal.activity.entriesActivities.entries.RegisterActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.EditProfileUMKM">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.EditProfileUser">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.AddProduct">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.UMKMDetails">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

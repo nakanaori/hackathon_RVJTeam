@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.pchmn.materialchips.ChipsInput;
+import com.u_binusportal.MainActivity;
 import com.u_binusportal.R;
 import com.u_binusportal.component.Category;
 
@@ -31,7 +32,7 @@ public class EditProfileUMKM extends AppCompatActivity {
     private EditText editedDescription;
     private ChipsInput editedCategegory;
     private ImageView editedImage;
-    private Button editButton;
+    private Button editButton, editProduk;
     private ChipsInput category;
     private ArrayList<Category> categoryList;
     private Context context;
@@ -64,6 +65,7 @@ public class EditProfileUMKM extends AppCompatActivity {
         editedCategegory = (ChipsInput) findViewById(R.id.editUMKMCategory);
         editedImage = (ImageView) findViewById(R.id.editUmkmImage);
         editButton = (Button) findViewById(R.id.editUmkmButton);
+        editProduk = (Button)findViewById(R.id.aturProdukButton);
 
         editedImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +78,15 @@ public class EditProfileUMKM extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("EditedText", editedName.getText().toString());
+            }
+        });
+
+        editProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // pindah ke dodo
+                Intent i = new Intent(getApplication(), MainActivity.class);
+                startActivity(i);
             }
         });
     }

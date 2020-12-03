@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_with_stroke"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/imgUser"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_margin="15dp"
+                android:layout_height="120dp"
+                android:background="@drawable/ic_launcher_background"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_launcher_foreground"
+                />
+        </RelativeLayout>
+
+        <!--            nama UMKM -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imgUser"
+            android:id="@+id/namaUMKM"
+            android:text="Nama UMKM"
+            android:textSize="22sp"/>
+
+        <!--        Deskripsi UMKM-->
+        <TextView
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@id/namaUMKM"
+            android:text="Deskripsi (maks 100 kata)"
+            android:textSize="18sp"
+            android:maxLines="3"
+            android:maxLength="100" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/list_produk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="10dp"
+            android:text="Produk - produk yang ditawarkan" />
+
+        <ListView
+            android:id="@+id/listviewproduk"
+            android:layout_width="match_parent"
+            android:layout_height="331dp"
+            android:layout_margin="10dp">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/btnUbah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="Edit Detail" />
+
+    </LinearLayout>
+
+</LinearLayout>

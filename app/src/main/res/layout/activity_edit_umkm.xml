@@ -50,12 +50,21 @@
         android:layout_marginVertical="10dp"
         app:hint="Kategori" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Produk"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:id="@+id/aturProdukButton"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Simpan Pengaturan"
         android:textAllCaps="false"
+        android:paddingTop="10dp"
         android:layout_gravity="center"
         android:id="@+id/editUmkmButton"/>
 
