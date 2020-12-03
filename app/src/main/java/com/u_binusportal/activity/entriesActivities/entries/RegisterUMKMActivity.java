@@ -35,7 +35,6 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         UMKMNameField = findViewById(R.id.addUmkmName);
         AddressField = findViewById(R.id.addUmkmAddress);
         DescriptionField = findViewById(R.id.addUmkmDescription);
-//        Category = findViewById(R.id.)
 
         RegisterUMKMButton = findViewById(R.id.registerUmkm);
 
@@ -73,14 +72,17 @@ public class RegisterUMKMActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(name)) {
             UMKMNameField.requestFocus();
-            UMKMNameField.setError("Empty name");
+            UMKMNameField.setError("Nama tidak boleh kosong");
         } else if (TextUtils.isEmpty(description)) {
             DescriptionField.requestFocus();
-            DescriptionField.setError("Empty description");
+            DescriptionField.setError("Deskripsi tidak boleh kosong");
+        } else if(TextUtils.getTrimmedLength(description) < 10){
+            DescriptionField.requestFocus();
+            DescriptionField.setError("Deskripsi minimal 10 huruf");
         } else if (TextUtils.isEmpty(address)) {
             AddressField.requestFocus();
-            AddressField.setError("Empty address");
-        }
+            AddressField.setError("Alamat tidak boleh kosong");
+        } else if(TextUtils.getTrimmedLength())
 
     }
 }
