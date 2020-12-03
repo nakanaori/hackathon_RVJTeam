@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.u_binusportal.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.User;
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 checkLogin();
             }
         });
+
     }
 
     private void checkLogin() {

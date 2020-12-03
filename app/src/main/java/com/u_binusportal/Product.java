@@ -1,5 +1,6 @@
 package com.u_binusportal;
 
+import android.net.Uri;
 import java.util.UUID;
 
 public class Product {
@@ -9,22 +10,35 @@ public class Product {
     private String productDescription;
     private long productPrice;
     private int productImage;
+    private Uri imgURI;
+    private String umkmId;
 
-    public Product(String umkmId,String productName, String productDescription, long productPrice, int productImage) {
+
+    public Product(String productName, String productDescription, long productPrice,
+                   Uri ImageURI, int productImage, String umkmID) {
         this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productImage = productImage;
-        this.umkmId = umkmId;
+        this.imgURI = ImageURI;
+        this.umkmId = umkmID;
     }
 
-    public Product(String umkmId, String productName, String productDescription, long productPrice) {
+    public Product(String productName, String productDescription, long productPrice, String umkmID) {
         this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
-        this.umkmId = umkmId;
+        this.umkmId = umkmID;
+    }
+
+    public Uri getImgURI() {
+        return imgURI;
+    }
+
+    public void setImgURI(Uri imgURI) {
+        this.imgURI = imgURI;
     }
 
     public String getUmkmId() {
@@ -74,4 +88,13 @@ public class Product {
     public void setProductImage(int productImage) {
         this.productImage = productImage;
     }
+
+    public Uri getProductURI() {
+        return this.imgURI;
+    }
+
+    public void setProductURI(Uri u) {
+        this.imgURI = u;
+    }
+
 }

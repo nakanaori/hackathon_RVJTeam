@@ -11,15 +11,8 @@ public class Umkm {
     private String[] umkmCategory;
     private String umkmAddress;
     private Uri umkmImage;
-    private String userId;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    private int imageR;
+    private String userID;
 
     public Uri getUmkmImage() {
         return umkmImage;
@@ -29,14 +22,23 @@ public class Umkm {
         this.umkmImage = umkmImage;
     }
 
-    public Umkm(String userId, String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage) {
+    public Umkm(String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage, int i, String userID) {
         this.umkmId = UUID.randomUUID().toString();
         this.umkmName = umkmName;
         this.umkmDescription = umkmDescription;
         this.umkmCategory = umkmCategory;
         this.umkmAddress = umkmAddress;
         this.umkmImage = umkmImage;
-        this.userId = userId;
+        this.imageR = i;
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getUmkmId() {
@@ -77,5 +79,29 @@ public class Umkm {
 
     public void setUmkmAddress(String umkmAddress) {
         this.umkmAddress = umkmAddress;
+    }
+
+    public int getImageR() {
+        return imageR;
+    }
+
+    public void setImageR(int i) {
+        this.imageR = i;
+    }
+
+    public UMKMListItemForLV convertToBeShownInLV() {
+        String category = "Kategori: " + traverse(umkmCategory);
+        UMKMListItemForLV item = new UMKMListItemForLV(this.umkmName, category, this.umkmImage, this.imageR);
+        return item;
+    }
+
+    private String traverse(String [] x) {
+        String res = "";
+        int y = x.length;
+        for(int i=0; i<y; i++) {
+            res += x[i];
+            if(i != y-1) res += ", "; else res += " ";
+        }
+        return res;
     }
 }

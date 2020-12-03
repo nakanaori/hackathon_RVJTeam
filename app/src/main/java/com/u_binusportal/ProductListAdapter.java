@@ -2,6 +2,7 @@ package com.u_binusportal;
 
 import android.content.Context;
 import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,9 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         String productId = getItem(position).getProductId();
         long productPrice = getItem(position).getProductPrice();
         int productImage = getItem(position).getProductImage();
+        Uri productUri = getItem(position).getProductURI();
 
-        Product product = new Product(productId,productName,productDesciption,productPrice,productImage);
+        Product product = new Product(productName, productDesciption, productPrice, productUri, productImage, "TEST");
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resource, parent,false);
 
@@ -49,6 +51,5 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         imgProductImage.setImageResource(productImage);
 
         return convertView;
-
     }
 }
