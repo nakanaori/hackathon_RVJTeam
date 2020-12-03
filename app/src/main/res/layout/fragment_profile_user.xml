@@ -110,7 +110,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/menu_logout"
+                android:id="@+id/menu_daftar_umkm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -133,14 +133,15 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:src="@drawable/contact_us_icon"
-                    app:srcCompat="?attr/actionModeCloseDrawable" />
+                    app:srcCompat="@drawable/daftar_umkm_icon" />
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/menu_icon2"
-                    android:text="Log Out"
+                    android:text="Daftar UMKM"
                     android:textColor="#000000"
                     android:textSize="15sp" />
 
@@ -149,7 +150,7 @@
         </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/menu_daftar_umkm"
+                android:id="@+id/menu_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -172,14 +173,14 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:src="@drawable/contact_us_icon"
-                        app:srcCompat="@drawable/daftar_umkm_icon" />
+                        app:srcCompat="?attr/actionModeCloseDrawable" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/menu_icon3"
-                        android:text="Daftar UMKM"
+                        android:text="Log out"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 

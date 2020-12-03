@@ -1,5 +1,6 @@
 package com.u_binusportal.activity.fragmentActivities.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,44 +13,45 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.u_binusportal.R;
+import com.u_binusportal.activity.EditProfileUMKM;
+import com.u_binusportal.activity.EditProfileUser;
 
-public class ProfilFragment extends Fragment {
+public class UserUMKMProfileFragment extends Fragment {
     private ImageView ProfileImage;
     private TextView Name;
     private TextView PhoneNumber;
     private View EditProfile;
     private View LogOut;
-//
+    private View EditUMKM;
+    //
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_profile, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile_user_umkm, container, false);
 
         // Make the XML components to java objects
-        ProfileImage = rootView.findViewById(R.id.profile_pic);
-        Name = rootView.findViewById(R.id.profile_name);
-        PhoneNumber = rootView.findViewById(R.id.profile_phone_number);
-        EditProfile = rootView.findViewById(R.id.menu_edit_profile);
-        LogOut = rootView.findViewById(R.id.menu_logout);
+        ProfileImage = rootView.findViewById(R.id.profile_pic2);
+        Name = rootView.findViewById(R.id.profile_name2);
+        PhoneNumber = rootView.findViewById(R.id.profile_phone_number2);
+        EditProfile = rootView.findViewById(R.id.menu_edit_profile2);
+        EditUMKM = rootView.findViewById(R.id.menu_edit_umkm);
+        LogOut = rootView.findViewById(R.id.menu_logout2);
 
-        // Set up the firebase attributes
-//        mAuth = FirebaseAuth.getInstance();
-//        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
-
-        // Set up the buttons
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditProfileUser.class));
+            }
+        });
 
-                // Go to EditProfileActivity
-//                startActivity(new Intent(getActivity(), EditProfileActivity.class));
-
+        EditUMKM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity()), EditProfileUMKM.class);
             }
         });
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                mAuth.signOut();
 
             }
         });
