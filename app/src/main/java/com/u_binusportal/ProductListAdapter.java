@@ -36,7 +36,7 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         int productImage = getItem(position).getProductImage();
         Uri productUri = getItem(position).getProductURI();
 
-        Product product = new Product(productId, productName, productDesciption, productPrice, productUri, productImage);
+        Product product = new Product(productName, productDesciption, productPrice, productUri, productImage, "TEST");
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resource, parent,false);
 
@@ -48,7 +48,6 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         txtProductName.setText(productName);
         txtProductDescription.setText(productDesciption);
         txtProductPrice.setText(Long.toString(productPrice));
-//        imgProductImage.setImageURI(productImage);
         imgProductImage.setImageResource(productImage);
 
         return convertView;

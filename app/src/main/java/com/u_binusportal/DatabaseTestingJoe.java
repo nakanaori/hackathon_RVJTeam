@@ -21,22 +21,22 @@ public class DatabaseTestingJoe {
         int imr = R.drawable.applogo;
 
         Umkm a = new Umkm("Kentucky Fried Chicken", "Ini adalah restoran KFC",
-                catMakanan, "jalan raya", img, imr);
+                catMakanan, "jalan raya", img, imr, "halo");
 
         Umkm b = new Umkm("Mc Donalds", "Ini adalah restoran Mac Donalds",
-                catMakanan, "jalan raya", img, imr);
+                catMakanan, "jalan raya", img, imr, "halo");
 
         Umkm c = new Umkm("HnM", "Ini adalah butik baju HnM",
-                catPakaian, "jalan raya", img, imr);
+                catPakaian, "jalan raya", img, imr, "halo");
 
         Umkm d = new Umkm("Gucci", "Ini adalah butik baju Gucci",
-                catPakaian, "jalan raya", img, imr);
+                catPakaian, "jalan raya", img, imr, "halo");
 
         Umkm e = new Umkm("Pet Store Jaya Baru", "Ini adalah Pet Store Jaya Baru",
-                catHobby, "jalan raya", img, imr);
+                catHobby, "jalan raya", img, imr, "halo");
 
         Umkm f = new Umkm("Matahari", "Ini adalah butik baju Matahari",
-                catPakaian, "jalan raya", img, imr);
+                catPakaian, "jalan raya", img, imr, "halo");
 
         this.dataUMKM.add(a);
         this.dataUMKM.add(b);

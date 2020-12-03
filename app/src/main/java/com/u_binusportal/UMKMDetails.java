@@ -20,8 +20,7 @@ public class UMKMDetails extends AppCompatActivity {
         setContentView(R.layout.activity_detailumkm);
         ListView productListView = (ListView)findViewById(R.id.listviewproduk);
 
-        Product a = new Product("a","b","c",1000);
-
+        Product a = new Product("a","desca",10000, "test");
 
         ArrayList<Product> productList = new ArrayList<>();
         productList.add(a);
