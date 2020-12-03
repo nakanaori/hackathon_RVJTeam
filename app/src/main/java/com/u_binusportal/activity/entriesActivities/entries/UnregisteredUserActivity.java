@@ -25,7 +25,7 @@ public class UnregisteredUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UnregisteredUserActivity.this, RegisterActivity.class);
-                startActivities(intent);
+                startActivity(intent);
             }
         });
 
@@ -33,7 +33,7 @@ public class UnregisteredUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UnregisteredUserActivity.this, LoginActivity.class);
-                startActivities(intent);
+                startActivity(intent);
             }
         });
     }
