@@ -6,4 +6,10 @@
     <string name="intro1">U-Binus Portal merupakan platform yang ditujukan sebagai sarana promosi oleh Usaha Mikro Kecil Menengah</string>
     <string name="intro2">Pelaku Usaha Mikro Kecil Menengah menyediakan informasi terkait usaha yang dijalankannya termasuk produk dan layanan yang mereka sediakan</string>
     <string name="intro3">Pengguna non-UMKM dapat memperoleh informasi mengenai UMKM yang hendak ia cari serta produk dan layanan yang disediakan UMKM tersebut</string>
+    <string name="alert_dialog_title">Select Image Option</string>
+
+    <string-array name="image_options">
+        <item>Choose photo from gallery</item>
+        <item>Take picture with camera</item>
+    </string-array>
 </resources>
