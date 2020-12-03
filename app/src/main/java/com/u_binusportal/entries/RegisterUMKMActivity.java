@@ -3,6 +3,7 @@ package com.u_binusportal.entries;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.provider.Telephony;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,10 +67,21 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         });
     }
 
-    private void startRegisterUMKM(){
+    private void startRegisterUMKM() {
         String name = UMKMNameField.getText().toString().trim();
+        String description = DescriptionField.getText().toString().trim();
         String address = AddressField.getText().toString().trim();
 
-    }
+        if (TextUtils.isEmpty(name)) {
+            UMKMNameField.requestFocus();
+            UMKMNameField.setError("Empty name");
+        } else if (TextUtils.isEmpty(description)) {
+            DescriptionField.requestFocus();
+            DescriptionField.setError("Empty description");
+        } else if (TextUtils.isEmpty(address)) {
+            AddressField.requestFocus();
+            AddressField.setError("Empty address");
+        }
 
+    }
 }

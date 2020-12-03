@@ -11,8 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.u_binusportal.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText NameField;
@@ -23,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button RegisterButton;
     private ProgressDialog Progress;
+
+    public ArrayList<User> users = new ArrayList<User>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,36 +63,36 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(name)) {
             NameField.requestFocus();
-            NameField.setError("Empty name");
+            NameField.setError("Nama tidak boleh kosong");
 
         } else if (TextUtils.isEmpty(password)) {
             PasswordField.requestFocus();
-            PasswordField.setError("Empty password");
-
+            PasswordField.setError("Kata sandi tidak boleh kosong");
         } else if (TextUtils.isEmpty(confirm)) {
             ConfirmPasswordField.requestFocus();
-            ConfirmPasswordField.setError("Empty password");
-
+            ConfirmPasswordField.setError("Kata sandi tidak boleh kosong");
         } else if (TextUtils.isEmpty(phonenumber)) {
             PhoneNumberField.requestFocus();
-            PhoneNumberField.setError("Empty phone number");
-
+            PhoneNumberField.setError("Nomor telepon tidak boleh kosong");
+        } else if (TextUtils.getTrimmedLength(phonenumber)!=12 && TextUtils.getTrimmedLength(phonenumber)!=13) {
+            PhoneNumberField.requestFocus();
+            PhoneNumberField.setError("Nomor telepon harus diantara 12-13 digit");
         } else {
 
             if (!password.equals(confirm)) { // Password and confirm aren't equal
-
                 // Set the error message
                 ConfirmPasswordField.requestFocus();
-                ConfirmPasswordField.setError("Password didn't match");
+                ConfirmPasswordField.setError("Kata sandi tidak sesuai");
             } else {
-                Progress.setMessage("Signing up ...");
-                Progress.show();
 
+//                Progress.setMessage("Signing up ...");
+//                Progress.show();
                 User newUser = new User(name,password,email,phonenumber,null);
-                    Progress.dismiss();
-                    Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG);
-
+                DatabaseTest.addUser(newUser);
+//                Progress.dismiss();
+                Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
             }
+
         }
 
     }
