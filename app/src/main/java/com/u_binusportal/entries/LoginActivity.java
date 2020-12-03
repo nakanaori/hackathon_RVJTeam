@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.u_binusportal.R
+import com.u_binusportal.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,24 +26,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        LoginPhoneNumberField = findViewById(R.id.login_phone_number);
-        LoginPasswordField = findViewById(R.id.login_password);
-        LoginButton = findViewById(R.id.login_button);
-        RegisterLink = findViewById(R.id.sign_up_hyperlink);
-
-        RegisterLink.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkLogin();
-            }
-        });
+//        LoginPhoneNumberField = findViewById(R.id.login_phone_number);
+//        LoginPasswordField = findViewById(R.id.login_password);
+//        LoginButton = findViewById(R.id.login_button);
+//        RegisterLink = findViewById(R.id.sign_up_hyperlink);
+//
+//        RegisterLink.setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View v){
+//                Intent intent = new Intent(this, RegisterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        LoginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkLogin();
+//            }
+//        });
     }
 
     private void checkLogin(){

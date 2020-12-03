@@ -19,7 +19,7 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="Contoh: produk elektronika"
+        android:hint="Contoh: produk elektronika"
         android:textColor="#323131"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
@@ -40,342 +40,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_icon" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:id='@+id/layout1'
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/cyan">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Kata Kunci Populer"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_keyword1"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword1"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <Button
-            android:id="@+id/button_keyword2"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword2"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_keyword3"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword3"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword1" />
-
-        <Button
-            android:id="@+id/button_keyword4"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword4"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword2" />
-
-        <Button
-            android:id="@+id/button_keyword5"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword5"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword3" />
-
-        <Button
-            android:id="@+id/button_keyword6"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword6"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword4" />
-
-        <Button
-            android:id="@+id/button_keyword7"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword5"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword5" />
-
-        <Button
-            android:id="@+id/button_keyword8"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="keyword6"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_keyword6" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:paddingTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout1"
-        android:background="@color/cyan">
+        app:layout_constraintTop_toBottomOf="@id/imageButton">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Kategori"
-            android:textColor="#000000"
+        <ListView
+            android:id="@+id/lv_pencarian"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_kategori1"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="makanan"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <Button
-            android:id="@+id/button_kategori2"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="minuman"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_kategori3"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="pakaian"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori1" />
-
-        <Button
-            android:id="@+id/button_kategori4"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="hobi"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori2" />
-
-        <Button
-            android:id="@+id/button_kategori5"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="kosmetik"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori3" />
-
-        <Button
-            android:id="@+id/button_kategori6"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="pertanian"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori4" />
-
-        <Button
-            android:id="@+id/button_kategori7"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="kesehatan"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori5" />
-
-        <Button
-            android:id="@+id/button_kategori8"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="elektronik"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori6" />
-
-        <Button
-            android:id="@+id/button_kategori9"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/lightestGreen"
-            android:text="furniture"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori7" />
-
-        <Button
-            android:id="@+id/button_kategori10"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="souvenir"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori8" />
-
-        <Button
-            android:id="@+id/button_kategori11"
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="30dp"
-            android:background="@color/lightestGreen"
-            android:text="jasa"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori9" />
-
-        <Button
-            android:id="@+id/button_kategori12"
-
-            android:layout_width="120dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/lightestGreen"
-            android:text="lain-lain"
-            android:textAllCaps="false"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_kategori10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,6 +1,7 @@
-package com.u_binusportal.fragment.HalamanUtama;
+package com.u_binusportal;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,28 +23,36 @@ import com.u_binusportal.R;
 
 import java.util.Objects;
 
-public class HalamanUtamaModel {
+public class UMKMListItemForLV {
 
     protected String title;
     protected String description;
-    protected int imageResources;
+    protected Uri uri_images;
+    protected int imgR;
 
-    public HalamanUtamaModel(String t, String d, int i) {
+    public UMKMListItemForLV(String t, String d, Uri u, int i) {
         this.title = t;
-        this.imageResources = i;
+        this.uri_images = u;
         this.description = d;
+        this.imgR = i;
     }
 
-    protected String getTitle () {
+    public UMKMListItemForLV(String t, String d, int i) {
+        this.title = t;
+        this.description = d;
+        this.imgR = i;
+    }
+
+    public String getTitle () {
         return this.title;
     }
 
-    protected String getDesc() {
+    public String getDesc() {
         return this.description;
     }
 
-    protected void setImageR (int i) {
-        this.imageResources = i;
+    protected void setImageURI (Uri i) {
+        this.uri_images = i;
     }
 
     protected void setTitle (String t) {
@@ -54,8 +63,16 @@ public class HalamanUtamaModel {
         this.description = d;
     }
 
-    protected int getImageR () {
-        return this.imageResources;
+    public Uri getImageURI () {
+        return this.uri_images;
+    }
+
+    public int getImageR () {
+        return this.imgR;
+    }
+
+    protected void setImageR (int i) {
+        this.imgR = i;
     }
 
 }

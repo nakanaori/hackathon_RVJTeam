@@ -1,32 +1,27 @@
-package com.u_binusportal.fragment.HalamanUtama;
+package com.u_binusportal;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.u_binusportal.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
+// class ini akan dipakai untuk halaman utama dan pencarian
 
-public class PopularUMKMAdapter extends ArrayAdapter<HalamanUtamaModel> {
+public class UMKMListAdapter extends ArrayAdapter<UMKMListItemForLV> {
 
-//    private static int resource = R.layout.custom_list_item_home;
     private Context c;
-    private List<HalamanUtamaModel> item;
-//    private Activity c;
+    private List<UMKMListItemForLV> item;
 
-    public PopularUMKMAdapter(@NonNull Context context, @NonNull ArrayList<HalamanUtamaModel> objects) {
+    public UMKMListAdapter(@NonNull Context context, @NonNull ArrayList<UMKMListItemForLV> objects) {
         super(context, R.layout.custom_list_item_home, objects);
         this.c = context;
         this.item = objects;
@@ -39,7 +34,7 @@ public class PopularUMKMAdapter extends ArrayAdapter<HalamanUtamaModel> {
         if(listItem == null) {
             listItem = LayoutInflater.from(c).inflate(R.layout.custom_list_item_home, parent, false);
         }
-        HalamanUtamaModel currentItem = item.get(position);
+        UMKMListItemForLV currentItem = item.get(position);
 
         ImageView umkmPhotos = (ImageView) listItem.findViewById(R.id.imageViewListHU);
         umkmPhotos.setImageResource(currentItem.getImageR());
