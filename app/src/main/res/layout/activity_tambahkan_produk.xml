@@ -13,7 +13,7 @@
             android:src="@drawable/ic_launcher_foreground"
             android:background="@drawable/ic_launcher_background"
             android:layout_margin="40dp"
-            android:id="@+id/productNewImage"
+            android:id="@+id/addProductImage"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -60,6 +60,7 @@
             android:layout_marginHorizontal="40dp"
             android:text="Tambahkan Produk"
             android:textAllCaps="false"
+            android:id="@+id/addProductButton"
             android:background="@color/green"
             android:textSize="20sp"/>
 
