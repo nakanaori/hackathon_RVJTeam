@@ -1,27 +1,39 @@
 package com.u_binusportal;
 
+import java.util.UUID;
+
 public class Product {
+    private String umkmId;
     private String productId;
     private String productName;
     private String productDescription;
     private long productPrice;
     private int productImage;
 
-    public Product(String productId, String productName, String productDescription, long productPrice, int productImage) {
-        this.productId = productId;
+    public Product(String umkmId,String productName, String productDescription, long productPrice, int productImage) {
+        this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productImage = productImage;
+        this.umkmId = umkmId;
     }
 
-    public Product(String productId, String productName, String productDescription, long productPrice) {
-        this.productId = productId;
+    public Product(String umkmId, String productName, String productDescription, long productPrice) {
+        this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
+        this.umkmId = umkmId;
     }
 
+    public String getUmkmId() {
+        return umkmId;
+    }
+
+    public void setUmkmId(String umkmId) {
+        this.umkmId = umkmId;
+    }
 
     public String getProductId() {
         return productId;

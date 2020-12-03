@@ -27,22 +27,22 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_user);
 
-        NameField = findViewById(R.id.input_nama_daftar_user);
-        PasswordField = findViewById(R.id.input_password_daftar_user);
-        ConfirmPasswordField = findViewById(R.id.input_konfirmasi_password_daftar_user);
-        PhoneNumberField = findViewById(R.id.input_phone_number_daftar_user);
-        EmailField = findViewById(R.id.input_email_daftar_user);
-
-        RegisterButton = findViewById(R.id.button_daftar_user);
-
-        Progress = new ProgressDialog(this);
-
-        RegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startRegisterUser();
-            }
-        });
+//        NameField = findViewById(R.id.input_nama_daftar_user);
+//        PasswordField = findViewById(R.id.input_password_daftar_user);
+//        ConfirmPasswordField = findViewById(R.id.input_konfirmasi_password_daftar_user);
+//        PhoneNumberField = findViewById(R.id.input_phone_number_daftar_user);
+//        EmailField = findViewById(R.id.input_email_daftar_user);
+//
+//        RegisterButton = findViewById(R.id.button_daftar_user);
+//
+//        Progress = new ProgressDialog(this);
+//
+//        RegisterButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startRegisterUser();
+//            }
+//        });
     }
 
     private void startRegisterUser(){
@@ -90,4 +90,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
 
-}
+}}

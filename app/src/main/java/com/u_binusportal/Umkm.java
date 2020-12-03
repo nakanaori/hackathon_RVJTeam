@@ -11,6 +11,15 @@ public class Umkm {
     private String[] umkmCategory;
     private String umkmAddress;
     private Uri umkmImage;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public Uri getUmkmImage() {
         return umkmImage;
@@ -20,13 +29,14 @@ public class Umkm {
         this.umkmImage = umkmImage;
     }
 
-    public Umkm(String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage) {
+    public Umkm(String userId, String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage) {
         this.umkmId = UUID.randomUUID().toString();
         this.umkmName = umkmName;
         this.umkmDescription = umkmDescription;
         this.umkmCategory = umkmCategory;
         this.umkmAddress = umkmAddress;
         this.umkmImage = umkmImage;
+        this.userId = userId;
     }
 
     public String getUmkmId() {
