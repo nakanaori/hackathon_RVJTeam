@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_profil"
-        android:name="com.u_binusportal.activity.fragmentActivities.fragment.ProfilFragment"
+        android:name="com.u_binusportal.activity.fragmentActivities.fragment.UserProfileFragment"
         android:label="@string/title_profil"
         tools:layout="@layout/profil" />
 
