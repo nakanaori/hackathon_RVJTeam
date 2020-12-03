@@ -1,10 +1,9 @@
 package com.u_binusportal;
 
-import android.net.Uri;
-
-import java.net.URI;
+import java.util.UUID;
 
 public class Product {
+    private String umkmId;
     private String productId;
     private String productName;
     private String productDescription;
@@ -12,22 +11,31 @@ public class Product {
     private int productImage;
     private Uri imgURI;
 
-    public Product(String productId, String productName, String productDescription, long productPrice, Uri ImageURI, int productImage) {
-        this.productId = productId;
+
+    public Product(String umkmId,String productName, String productDescription, long productPrice, int productImage) {
+        this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.productImage = productImage;
-        this.imgURI = ImageURI;
+        this.umkmId = umkmId;
     }
 
-    public Product(String productId, String productName, String productDescription, long productPrice) {
-        this.productId = productId;
+    public Product(String umkmId, String productName, String productDescription, long productPrice) {
+        this.productId = UUID.randomUUID().toString();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
+        this.umkmId = umkmId;
     }
 
+    public String getUmkmId() {
+        return umkmId;
+    }
+
+    public void setUmkmId(String umkmId) {
+        this.umkmId = umkmId;
+    }
 
     public String getProductId() {
         return productId;

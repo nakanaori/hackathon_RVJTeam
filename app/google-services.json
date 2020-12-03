@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "342394868597",
+    "project_id": "ubinusportal",
+    "storage_bucket": "ubinusportal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342394868597:android:247e64614c030feb23b93c",
+        "android_client_info": {
+          "package_name": "com.u_binusportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342394868597-lndr6id5ais8076or106nbg8bq8q9i92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3lJ4iPCD2F5YO5LfkgJk6nUFEBPXrExw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342394868597-lndr6id5ais8076or106nbg8bq8q9i92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

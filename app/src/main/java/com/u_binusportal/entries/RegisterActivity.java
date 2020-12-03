@@ -6,11 +6,17 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.u_binusportal.DatabaseTest;
 import com.u_binusportal.R;
+import com.u_binusportal.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText NameField;
@@ -21,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button RegisterButton;
     private ProgressDialog Progress;
+
+    public ArrayList<User> users = new ArrayList<User>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,51 +51,51 @@ public class RegisterActivity extends AppCompatActivity {
                 startRegisterUser();
             }
         });
+
     }
 
-    private void startRegisterUser(){
+    private void startRegisterUser() {
         String email = EmailField.getText().toString().trim();
         String password = PasswordField.getText().toString().trim();
         String confirm = ConfirmPasswordField.getText().toString().trim();
         String name = NameField.getText().toString().trim();
         String phonenumber = PhoneNumberField.getText().toString().trim();
 
-        if (TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             NameField.requestFocus();
-            NameField.setError("Empty name");
-        } else if (TextUtils.isEmpty(password)){
+            NameField.setError("Nama tidak boleh kosong");
 
-            // Set the error message
+        } else if (TextUtils.isEmpty(password)) {
             PasswordField.requestFocus();
-            PasswordField.setError("Empty password");
-
+            PasswordField.setError("Kata sandi tidak boleh kosong");
         } else if (TextUtils.isEmpty(confirm)) {
-
-            // Set the error message
             ConfirmPasswordField.requestFocus();
-            ConfirmPasswordField.setError("Empty password");
-
-        } else if (TextUtils.isEmpty(phonenumber)){
+            ConfirmPasswordField.setError("Kata sandi tidak boleh kosong");
+        } else if (TextUtils.isEmpty(phonenumber)) {
             PhoneNumberField.requestFocus();
-            PhoneNumberField.setError("Empty phone number");
-
-        } else if (TextUtils.isEmpty(email)) {
-
-            // Set the error message
-            EmailField.requestFocus();
-            EmailField.setError("Empty email");
-
-        }  else {
+            PhoneNumberField.setError("Nomor telepon tidak boleh kosong");
+        } else if (TextUtils.getTrimmedLength(phonenumber)!=12 && TextUtils.getTrimmedLength(phonenumber)!=13) {
+            PhoneNumberField.requestFocus();
+            PhoneNumberField.setError("Nomor telepon harus diantara 12-13 digit");
+        } else {
 
             if (!password.equals(confirm)) { // Password and confirm aren't equal
-
                 // Set the error message
                 ConfirmPasswordField.requestFocus();
-                ConfirmPasswordField.setError("Password didn't match");
-            }else{
-                Progress.setMessage("Signing up ...");
-                Progress.show();
+                ConfirmPasswordField.setError("Kata sandi tidak sesuai");
+            } else {
+
+//                Progress.setMessage("Signing up ...");
+//                Progress.show();
+                User newUser = new User(name,password,email,phonenumber,null);
+                DatabaseTest.addUser(newUser);
+//                Progress.dismiss();
+                Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
             }
+
         }
 
-}}
+
+    }
+}
+
