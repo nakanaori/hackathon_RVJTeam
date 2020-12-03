@@ -3,12 +3,15 @@ package com.u_binusportal.entries;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.u_binusportal.R;
@@ -44,21 +47,20 @@ public class LoginActivity extends AppCompatActivity {
 //                checkLogin();
 //            }
 //        });
+
     }
 
     private void checkLogin(){
         String phonenumber = LoginPhoneNumberField.getText().toString().trim();
         String password = LoginPasswordField.getText().toString().trim();
 
-        if (TextUtils.isEmpty(phonenumber)){ // Empty email field
+        if (TextUtils.isEmpty(phonenumber)){
 
-            // Set the error message
             LoginPhoneNumberField.requestFocus();
-            LoginPhoneNumberField.setError("Empty email");
+            LoginPhoneNumberField.setError("Empty phone number");
 
-        } else if (TextUtils.isEmpty(password)){ //Empty password field
+        } else if (TextUtils.isEmpty(password)){
 
-            // Set the error message
             LoginPasswordField.requestFocus();
             LoginPasswordField.setError("Empty password");
 

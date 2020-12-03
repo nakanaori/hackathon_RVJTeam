@@ -21,10 +21,10 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_nama_daftar_user"
-        app:layout_constraintVertical_bias="0.524" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <TextView
         android:id="@+id/textView2"
@@ -79,8 +79,10 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_nama_daftar_user" />
+        app:layout_constraintTop_toBottomOf="@+id/input_nama_daftar_user"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/input_phone_number_daftar_user"
@@ -97,10 +99,10 @@
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_password_daftar_user"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <EditText
         android:id="@+id/input_email_daftar_user"
@@ -117,8 +119,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_phone_number_daftar_user" />
+        app:layout_constraintTop_toBottomOf="@+id/input_phone_number_daftar_user"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button_daftar_user"
