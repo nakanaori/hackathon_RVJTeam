@@ -3,6 +3,7 @@ package com.u_binusportal.entries;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,7 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.u_binusportal.DatabaseTest;
 import com.u_binusportal.R;
+import com.u_binusportal.User;
+
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,13 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        DatabaseTest.addUser(new User("dodo", "dodo", "dodo", "081291358587",null));
         LoginPhoneNumberField = findViewById(R.id.login_phone_number);
         LoginPasswordField = findViewById(R.id.login_password);
         LoginButton = findViewById(R.id.login_button);
         RegisterLink = findViewById(R.id.sign_up_hyperlink);
 
-        RegisterLink.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        RegisterLink.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
@@ -51,22 +59,22 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void checkLogin(){
+    private void checkLogin() {
         String phonenumber = LoginPhoneNumberField.getText().toString().trim();
         String password = LoginPasswordField.getText().toString().trim();
-
-        if (TextUtils.isEmpty(phonenumber)){
-
+        if (TextUtils.isEmpty(phonenumber)) {
             LoginPhoneNumberField.requestFocus();
-            LoginPhoneNumberField.setError("Empty phone number");
-
-        } else if (TextUtils.isEmpty(password)){
-
+            LoginPhoneNumberField.setError("Nomor telepon tidak boleh kosong");
+        } else if (TextUtils.isEmpty(password)) {
             LoginPasswordField.requestFocus();
-            LoginPasswordField.setError("Empty password");
-
+            LoginPasswordField.setError("Kata sandi tidak boleh kosong");
+        } else {
+            if (DatabaseTest.isRegistered(phonenumber, password)) {
+                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+            }
         }
     }
-
 
 }
