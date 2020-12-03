@@ -64,6 +64,10 @@ public class RegisterActivity extends AppCompatActivity {
             NameField.requestFocus();
             NameField.setError("Nama tidak boleh kosong");
 
+        } else if (TextUtils.getTrimmedLength(name) > 50) {
+            NameField.requestFocus();
+            NameField.setError("Nama tidak boleh lebih dari 50 karakter");
+
         } else if (TextUtils.isEmpty(password)) {
             PasswordField.requestFocus();
             PasswordField.setError("Kata sandi tidak boleh kosong");

@@ -60,7 +60,7 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         RegisterUMKMButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startRegisterUser();
+                startRegisterUMKM();
             }
         });
     }
@@ -72,17 +72,28 @@ public class RegisterUMKMActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(name)) {
             UMKMNameField.requestFocus();
-            UMKMNameField.setError("Nama tidak boleh kosong");
-        } else if (TextUtils.isEmpty(description)) {
+            UMKMNameField.setError("Nama UMKM tidak boleh kosong");
+
+        } else if (TextUtils.getTrimmedLength(name) > 50) {
+            UMKMNameField.requestFocus();
+            UMKMNameField.setError("Nama UMKM tidak boleh lebih dari 50 karakter");
+
+        }else if (TextUtils.isEmpty(description)) {
             DescriptionField.requestFocus();
             DescriptionField.setError("Deskripsi tidak boleh kosong");
-        } else if(TextUtils.getTrimmedLength(description) < 10){
+
+        } else if(TextUtils.getTrimmedLength(description) > 100){
             DescriptionField.requestFocus();
-            DescriptionField.setError("Deskripsi minimal 10 huruf");
+            DescriptionField.setError("Deskripsi tidak boleh lebih dari 100 karakter");
+
         } else if (TextUtils.isEmpty(address)) {
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh kosong");
-        } else if(TextUtils.getTrimmedLength())
+
+        } else if(TextUtils.getTrimmedLength(address) > 100){
+            AddressField.requestFocus();
+            AddressField.setError("Alamat tidak boleh lebih dari 100 karakter");
+        }
 
     }
 }
