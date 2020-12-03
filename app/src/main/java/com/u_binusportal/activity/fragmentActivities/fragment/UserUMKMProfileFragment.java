@@ -45,7 +45,7 @@ public class UserUMKMProfileFragment extends Fragment {
         EditUMKM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity()), EditProfileUMKM.class);
+                startActivity(new Intent(getActivity(), EditProfileUMKM.class));
             }
         });
 
