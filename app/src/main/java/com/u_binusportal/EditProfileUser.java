@@ -1,6 +1,5 @@
 package com.u_binusportal;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.pchmn.materialchips.ChipsInput;
 
 import java.util.ArrayList;
 
-public class EditProfileUMKM extends AppCompatActivity {
+public class EditProfileUser extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
