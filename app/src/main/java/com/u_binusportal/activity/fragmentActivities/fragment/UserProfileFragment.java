@@ -23,18 +23,18 @@ public class UserProfileFragment extends Fragment {
     private View EditProfile;
     private View LogOut;
     private View DaftarUMKM;
-//
+    private View MoreInformation;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile_user, container, false);
 
-        // Make the XML components to java objects
         ProfileImage = rootView.findViewById(R.id.profile_pic);
         Name = rootView.findViewById(R.id.profile_name);
         PhoneNumber = rootView.findViewById(R.id.profile_phone_number);
         EditProfile = rootView.findViewById(R.id.menu_edit_profile);
         DaftarUMKM = rootView.findViewById(R.id.menu_daftar_umkm);
         LogOut = rootView.findViewById(R.id.menu_logout);
-
+        MoreInformation = rootView.findViewById(R.id.menu_information);
 
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +47,13 @@ public class UserProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), RegisterUMKMActivity.class));
+            }
+        });
+
+        MoreInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), ));
             }
         });
 
