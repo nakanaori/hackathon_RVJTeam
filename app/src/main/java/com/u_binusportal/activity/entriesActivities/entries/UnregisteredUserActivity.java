@@ -1,4 +1,4 @@
-package com.u_binusportal.entries;
+package com.u_binusportal.activity.entriesActivities.entries;
 
 import android.content.Intent;
 import android.os.Bundle;
