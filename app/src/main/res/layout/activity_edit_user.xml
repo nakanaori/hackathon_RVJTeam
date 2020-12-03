@@ -46,6 +46,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:background="@color/skyBlue"
+        android:id="@+id/editUserButton"
         android:paddingHorizontal="20dp"/>
 
 
