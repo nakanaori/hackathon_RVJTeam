@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_with_stroke">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_with_stroke"
+        android:background="@color/cyan"
         android:id="@+id/faqHeader"
         android:padding="5dp"
         >
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/faqDetails"
             android:layout_below="@id/faqHeader"
-            android:background="@drawable/background_without_stroke">
+            android:background="@color/cyan">
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/suggestionHeader"
-        android:background="@drawable/background_with_stroke"
+        android:background="@color/cyan"
         >
 
         <ImageView
@@ -89,7 +90,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/suggestionDetails"
             android:layout_below="@id/suggestionHeader"
-            android:background="@drawable/background_without_stroke">
+            android:background="@color/cyan">
 
             <TextView
                 android:layout_width="match_parent"
@@ -104,13 +105,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/suggestion"
         android:id="@+id/contactUs"
-        android:layout_margin="10dp"
-        >
+        android:layout_margin="10dp">
+
     <RelativeLayout
         android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_with_stroke"
+        android:background="@color/cyan"
         android:id="@+id/contactUsHeader"
         >
 
@@ -137,7 +138,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/contactUsDetails"
             android:layout_below="@id/contactUsHeader"
-            android:background="@drawable/background_without_stroke">
+            android:background="@color/cyan">
 
             <TextView
                 android:layout_width="match_parent"
