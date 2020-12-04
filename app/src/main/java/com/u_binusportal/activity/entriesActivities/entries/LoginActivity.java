@@ -21,7 +21,6 @@ import com.u_binusportal.component.User;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText LoginPhoneNumberField;
-    private EditText LoginPasswordField;
     private Button LoginButton;
     private TextView RegisterLink;
     private ProgressDialog Progress;
@@ -31,9 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DatabaseTest.addUser(new User("dodo", "dodo", "dodo", "081291358587",null));
+        DatabaseTest.addUser(new User("dodo", "dodo", "081291358587",null));
         LoginPhoneNumberField = findViewById(R.id.login_phone_number);
-        LoginPasswordField = findViewById(R.id.login_password);
         LoginButton = findViewById(R.id.login_button);
         RegisterLink = findViewById(R.id.sign_up_hyperlink);
 
@@ -57,22 +55,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkLogin() {
         String phonenumber = LoginPhoneNumberField.getText().toString().trim();
-        String password = LoginPasswordField.getText().toString().trim();
         if (TextUtils.isEmpty(phonenumber)) {
             LoginPhoneNumberField.requestFocus();
             LoginPhoneNumberField.setError("Nomor telepon tidak boleh kosong");
         } else if (TextUtils.getTrimmedLength(phonenumber) < 11 || TextUtils.getTrimmedLength(phonenumber) > 13) {
             LoginPhoneNumberField.requestFocus();
             LoginPhoneNumberField.setError("Jumlah digit diantara 11 dan 13");
-        } else if (TextUtils.isEmpty(password)) {
-            LoginPasswordField.requestFocus();
-            LoginPasswordField.setError("Kata sandi tidak boleh kosong");
         } else {
-            if (DatabaseTest.isRegistered(phonenumber, password)) {
-                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
-            }
+//            if (DatabaseTest.isRegistered(phonenumber, password)) {
+//                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+//            }else{
+//                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+//            }
         }
     }
 

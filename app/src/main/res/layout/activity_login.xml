@@ -6,24 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_with_stroke">
 
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="314dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:hint="Kata sandi"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_phone_number" />
 
     <EditText
         android:id="@+id/login_phone_number"
@@ -31,19 +13,20 @@
         android:layout_height="56dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
+        android:digits="0123456789"
         android:ems="10"
         android:hint="Nomor telepon"
         android:inputType="phone"
-        android:digits="0123456789"
-        app:layout_constraintBottom_toTopOf="@+id/login_password"
+        app:layout_constraintBottom_toTopOf="@id/login_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_text" />
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:layout_constraintVertical_bias="0.609" />
 
     <TextView
         android:id="@+id/login_text"
@@ -72,12 +55,14 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="147dp"
         android:layout_marginRight="147dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="352dp"
         android:text="Masuk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_phone_number" />
+
         android:background="@color/green"
         app:layout_constraintTop_toBottomOf="@+id/login_password" />
 
