@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.u_binusportal.activity.entriesActivities.entries.RegisterActivity;
+import com.u_binusportal.activity.entriesActivities.entries.RegisterUMKMActivity;
 import com.u_binusportal.handlers.FragmentHandler;
 import com.u_binusportal.handlers.InfoAppPageHandler;
 
@@ -18,13 +20,13 @@ public class MainActivity extends AppCompatActivity {
         call();
     }
     public void call() {
-        Intent i = new Intent(this, InfoAppPageHandler.class );
+        Intent i = new Intent(this, RegisterActivity.class );
         startActivity(i);
     }
 
     // ini cuma untuk testing fragment dengan navigasi aja
     public void toFragment(View view) {
-        Intent i = new Intent(this, FragmentHandler.class );
+        Intent i = new Intent(this, RegisterActivity.class );
         startActivity(i);
     }
 }

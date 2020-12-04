@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.u_binusportal.OTPGenerate;
 import com.u_binusportal.forTesting.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.component.User;
@@ -80,7 +81,9 @@ public class RegisterActivity extends AppCompatActivity {
 //                Progress.dismiss();
                 Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
                 UserTesting.hasUser = true;
-                startActivity(new Intent(this, FragmentHandler.class));
+                
+                // INI INTENTNYA UNTUK KE OTP
+                startActivity(new Intent(this, OTPGenerate.class));
             }
 
         }

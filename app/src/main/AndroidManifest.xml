@@ -49,6 +49,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.u_binusportal.OTPGenerate"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.u_binusportal.activity.EditProfileUMKM"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

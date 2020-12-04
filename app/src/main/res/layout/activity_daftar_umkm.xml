@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_with_stroke"
-   >
+    android:background="@drawable/background_with_stroke">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,8 +19,7 @@
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:layout_marginVertical="60dp"
-        android:textColor="@color/black"
-        />
+        android:textColor="@color/black" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,8 +27,7 @@
         android:hint="Nama UMKM"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/addUmkmName"
-        android:layout_marginVertical="10dp"
-        />
+        android:layout_marginVertical="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,8 +35,7 @@
         android:hint="Alamat UMKM"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/addUmkmAddress"
-        android:layout_marginVertical="10dp"
-        />
+        android:layout_marginVertical="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -46,8 +43,7 @@
         android:hint="Deskripsi UMKM"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/addUmkmDescription"
-        android:layout_marginVertical="10dp"
-        />
+        android:layout_marginVertical="10dp" />
 
     <com.pchmn.materialchips.ChipsInput
         android:id="@+id/addUmkmCategory"
@@ -55,7 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        app:hint="Kategori" />
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        app:hint="Kategori"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
