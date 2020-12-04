@@ -22,8 +22,6 @@ import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText NameField;
-    private EditText PasswordField;
-    private EditText ConfirmPasswordField;
     private EditText PhoneNumberField;
     private EditText EmailField;
 
@@ -38,11 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_user);
 
         NameField = findViewById(R.id.input_nama_daftar_user);
-        PasswordField = findViewById(R.id.input_password_daftar_user);
-        ConfirmPasswordField = findViewById(R.id.input_konfirmasi_password_daftar_user);
         PhoneNumberField = findViewById(R.id.input_phone_number_daftar_user);
         EmailField = findViewById(R.id.input_email_daftar_user);
-
         RegisterButton = findViewById(R.id.button_daftar_user);
 
         Progress = new ProgressDialog(this);
@@ -58,8 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void startRegisterUser() {
         String email = EmailField.getText().toString().trim();
-        String password = PasswordField.getText().toString().trim();
-        String confirm = ConfirmPasswordField.getText().toString().trim();
         String name = NameField.getText().toString().trim();
         String phonenumber = PhoneNumberField.getText().toString().trim();
 
@@ -71,14 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
             NameField.requestFocus();
             NameField.setError("Nama tidak boleh lebih dari 50 karakter");
 
-        } else if (TextUtils.isEmpty(password)) {
-            PasswordField.requestFocus();
-            PasswordField.setError("Kata sandi tidak boleh kosong");
-
-        } else if (TextUtils.isEmpty(confirm)) {
-            ConfirmPasswordField.requestFocus();
-            ConfirmPasswordField.setError("Kata sandi tidak boleh kosong");
-
         } else if (TextUtils.isEmpty(phonenumber)) {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Nomor telepon tidak boleh kosong");
@@ -88,15 +73,9 @@ public class RegisterActivity extends AppCompatActivity {
             PhoneNumberField.setError("Nomor telepon harus diantara 11-13 digit");
         } else {
 
-            if (!password.equals(confirm)) { // Password and confirm aren't equal
-                // Set the error message
-                ConfirmPasswordField.requestFocus();
-                ConfirmPasswordField.setError("Kata sandi tidak sesuai");
-            } else {
-
 //                Progress.setMessage("Signing up ...");
 //                Progress.show();
-                User newUser = new User(name,password,email,phonenumber,null);
+                User newUser = new User(name,email,phonenumber,null);
                 DatabaseTest.addUser(newUser);
 //                Progress.dismiss();
                 Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
@@ -105,8 +84,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
         }
-
-
-    }
 }
 
