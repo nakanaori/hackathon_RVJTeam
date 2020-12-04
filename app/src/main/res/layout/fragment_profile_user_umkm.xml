@@ -69,7 +69,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="299dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/newBlue">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/menu_edit_profile2"
@@ -94,7 +95,6 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/faq_icon"
                         app:srcCompat="@drawable/default_picture" />
 
                     <TextView
@@ -133,7 +133,6 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/contact_us_icon"
                         app:srcCompat="@drawable/daftar_umkm_icon" />
 
 
@@ -173,8 +172,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/contact_us_icon"
-                        app:srcCompat="@drawable/info" />
+                        app:srcCompat="@drawable/contact_us_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -213,8 +211,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/contact_us_icon"
-                        app:srcCompat="?attr/actionModeCloseDrawable" />
+                        app:srcCompat="@drawable/back_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -231,6 +228,6 @@
         </LinearLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
 
     </ScrollView>

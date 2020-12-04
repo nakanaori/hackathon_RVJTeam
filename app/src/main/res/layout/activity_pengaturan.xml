@@ -16,7 +16,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cyan"
+        android:background="@color/newBlue"
         android:id="@+id/faqHeader"
         android:padding="5dp"
         >
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/faqDetails"
             android:layout_below="@id/faqHeader"
-            android:background="@color/cyan">
+            android:background="@color/newBlue">
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/suggestionHeader"
-        android:background="@color/cyan"
+        android:background="@color/newBlue"
         >
 
         <ImageView
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/suggestionDetails"
             android:layout_below="@id/suggestionHeader"
-            android:background="@color/cyan">
+            android:background="@color/newBlue">
 
             <TextView
                 android:layout_width="match_parent"
@@ -111,7 +111,7 @@
         android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cyan"
+        android:background="@color/newBlue"
         android:id="@+id/contactUsHeader"
         >
 
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/contactUsDetails"
             android:layout_below="@id/contactUsHeader"
-            android:background="@color/cyan">
+            android:background="@color/newBlue">
 
             <TextView
                 android:layout_width="match_parent"
