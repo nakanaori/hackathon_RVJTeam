@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                Progress.dismiss();
                 Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
                 UserTesting.hasUser = true;
-                
+
                 // INI INTENTNYA UNTUK KE OTP
                 startActivity(new Intent(this, OTPGenerate.class));
             }

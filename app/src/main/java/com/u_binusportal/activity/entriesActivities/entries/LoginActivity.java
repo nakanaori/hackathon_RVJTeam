@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.u_binusportal.OTPGenerate;
 import com.u_binusportal.forTesting.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.component.User;
@@ -67,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 //            }else{
 //                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
 //            }
+            Intent intent = new Intent(this, OTPGenerate.class);
+            startActivity(intent);
         }
     }
 
