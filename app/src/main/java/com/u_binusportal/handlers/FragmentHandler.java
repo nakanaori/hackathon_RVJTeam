@@ -1,4 +1,5 @@
 package com.u_binusportal.handlers;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,21 +14,31 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.u_binusportal.Constant;
 import com.u_binusportal.R;
 import com.u_binusportal.activity.fragmentActivities.fragment.HalamanUtamaFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.PencarianFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UnregisteredUserFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UserProfileFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UserUMKMProfileFragment;
+import com.u_binusportal.component.User;
 import com.u_binusportal.forTesting.UserTesting;
 
 public class FragmentHandler extends AppCompatActivity {
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private boolean umkmExists;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         setContentView(R.layout.group_fragment); // main page
         BottomNavigationView botNav = findViewById(R.id.bottom_menu_navigation); // set bar di bawah
@@ -46,10 +57,41 @@ public class FragmentHandler extends AppCompatActivity {
                         selectedFragment = new PencarianFragment();
                         break;
                     case R.id.bot_navigation_profil:
-                        if(UserTesting.hasUser && UserTesting.isUserHasUMKM) selectedFragment = new UserUMKMProfileFragment();
-                        else if(UserTesting.hasUser && !UserTesting.isUserHasUMKM) selectedFragment = new UserProfileFragment();
-                        else selectedFragment = new UnregisteredUserFragment();
-                        break;
+                        if(firebaseAuth.getCurrentUser() != null){
+                            db.collection("Users").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    User user = new User(documentSnapshot.getString("id"),
+                                            documentSnapshot.getString("name"),
+                                            documentSnapshot.getString("email"),
+                                            documentSnapshot.getString("phoneNumber"),
+                                            Uri.parse(documentSnapshot.getString("image")));
+                                    Constant.currentUser = user;
+                                }
+                            });
+                            db.collection("UMKM").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if(documentSnapshot.exists()){
+                                       umkmExists = true;
+                                    }else{
+                                        umkmExists = false;
+                                    }
+                                }
+                            });
+                            if(umkmExists){
+                                selectedFragment = new UserUMKMProfileFragment();
+                            }else{
+                                selectedFragment = new UserProfileFragment();
+                            }
+                        }else{
+                            selectedFragment = new UnregisteredUserFragment();
+                        }
+
+//                        if(UserTesting.hasUser && UserTesting.isUserHasUMKM) selectedFragment = new UserUMKMProfileFragment();
+//                        else if(UserTesting.hasUser && !UserTesting.isUserHasUMKM) selectedFragment = new UserProfileFragment();
+//                        else selectedFragment = new UnregisteredUserFragment();
+//                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, selectedFragment).commit();
                 return false;

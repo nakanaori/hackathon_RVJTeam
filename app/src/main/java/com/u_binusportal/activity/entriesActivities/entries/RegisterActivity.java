@@ -64,7 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar_user);
         firebaseAuth = FirebaseAuth.getInstance();
         preferences = RegisterActivity.this.getSharedPreferences(getString(R.string.preference_key), MODE_PRIVATE);
-
         NameField = findViewById(R.id.input_nama_daftar_user);
         PhoneNumberField = findViewById(R.id.input_phone_number_daftar_user);
         EmailField = findViewById(R.id.input_email_daftar_user);
