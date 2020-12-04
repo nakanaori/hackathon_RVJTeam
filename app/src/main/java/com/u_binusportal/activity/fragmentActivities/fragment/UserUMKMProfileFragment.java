@@ -13,8 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.u_binusportal.R;
-import com.u_binusportal.activity.EditProfileUMKM;
 import com.u_binusportal.activity.EditProfileUser;
+import com.u_binusportal.activity.MoreInformations;
+import com.u_binusportal.activity.MyUMKMDetails;
+import com.u_binusportal.forTesting.UserTesting;
+import com.u_binusportal.handlers.FragmentHandler;
 
 public class UserUMKMProfileFragment extends Fragment {
     private ImageView ProfileImage;
@@ -46,21 +49,23 @@ public class UserUMKMProfileFragment extends Fragment {
         EditUMKM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EditProfileUMKM.class));
+                startActivity(new Intent(getActivity(), MyUMKMDetails.class));
             }
         });
 
         MoreInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(), MoreInformations.class));
             }
         });
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                UserTesting.isUserHasUMKM = false;
+                UserTesting.hasUser = false;
+                startActivity(new Intent(getActivity(), FragmentHandler.class));
             }
         });
 

@@ -1,9 +1,11 @@
 package com.u_binusportal.activity.fragmentActivities.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.u_binusportal.activity.UMKMDetailsTokoTertentu;
 import com.u_binusportal.forTesting.DatabaseTestingJoe;
 import com.u_binusportal.R;
 import com.u_binusportal.adapter.UMKMListAdapter;
@@ -55,13 +58,13 @@ public class PencarianFragment extends Fragment {
                 find();
             }
         });
-        // INI NANTI NGEDIRECT KE PROFIL UMKM TERTENTU
-//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        });
+        // INI NANTI NGEDIRECT KE PROFIL UMKM TERTENTU BELUM DIMASUKKAN LOGIC
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getActivity(), UMKMDetailsTokoTertentu.class));
+            }
+        });
     }
 
     private void find() {

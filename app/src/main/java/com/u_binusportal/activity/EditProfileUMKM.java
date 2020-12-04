@@ -78,6 +78,8 @@ public class EditProfileUMKM extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("EditedText", editedName.getText().toString());
+                // update
+                finish();
             }
         });
 
@@ -85,7 +87,7 @@ public class EditProfileUMKM extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // pindah ke dodo
-                Intent i = new Intent(getApplication(), MainActivity.class);
+                Intent i = new Intent(getApplication(), EditProduct.class);
                 startActivity(i);
             }
         });

@@ -35,17 +35,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.entriesActivities.entries.RegisterActivity">
+        <activity
+            android:name="com.u_binusportal.activity.entriesActivities.entries.RegisterActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.EditProfileUMKM">
+        <activity
+            android:name="com.u_binusportal.activity.entriesActivities.entries.RegisterUMKMActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.EditProfileUser">
+        <activity android:name="com.u_binusportal.activity.EditProfileUMKM"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.u_binusportal.activity.EditProfileUser"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -55,7 +67,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.UMKMDetails">
+        <activity android:name="com.u_binusportal.activity.MyUMKMDetails">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.MoreInformations">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.u_binusportal.activity.UMKMDetailsTokoTertentu">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.u_binusportal.activity.EditProduct"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

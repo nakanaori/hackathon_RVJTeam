@@ -32,20 +32,20 @@ public class AddProduct extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = this;
-
-        addName = (EditText) findViewById(R.id.addProductName);
-        addDescription = (EditText) findViewById(R.id.addProductDescription);
-        addPrice = (EditText) findViewById(R.id.addProductPrice);
-        addProductImage = (ImageView) findViewById(R.id.addProductImage);
-        addProductButton = (Button) findViewById(R.id.addProductButton);
-
-        addProductImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showImageOptionDialog();
-            }
-        });
+//        context = this;
+//
+//        addName = (EditText) findViewById(R.id.addProductName);
+//        addDescription = (EditText) findViewById(R.id.addProductDescription);
+//        addPrice = (EditText) findViewById(R.id.addProductPrice);
+//        addProductImage = (ImageView) findViewById(R.id.addProductImage);
+//        addProductButton = (Button) findViewById(R.id.addProductButton);
+//
+//        addProductImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showImageOptionDialog();
+//            }
+//        });
 
     }
     private void getImageFromGallery() {

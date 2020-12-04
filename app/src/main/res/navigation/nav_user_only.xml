@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav"
+    android:id="@+id/nav_user_saja"
     app:startDestination="@+id/navigation_home" >
 
     <!--
@@ -14,23 +14,21 @@
     -->
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_home2"
         android:name="com.u_binusportal.activity.fragmentActivities.fragment.HalamanUtamaFragment"
         android:label="@string/title_home"
         tools:layout="@layout/halaman_utama" />
 
     <fragment
-        android:id="@+id/navigation_search"
+        android:id="@+id/navigation_search2"
         android:name="com.u_binusportal.activity.fragmentActivities.fragment.PencarianFragment"
         android:label="@string/title_pencarian"
         tools:layout="@layout/pencarian" />
 
     <fragment
-        android:id="@+id/navigation_profil"
+        android:id="@+id/navigation_profil2"
         android:name="com.u_binusportal.activity.fragmentActivities.fragment.UserProfileFragment"
         android:label="@string/title_profil"
-        tools:layout="@layout/profil" />
-
-
+        tools:layout="@layout/fragment_profile_user" />
 
 </navigation>

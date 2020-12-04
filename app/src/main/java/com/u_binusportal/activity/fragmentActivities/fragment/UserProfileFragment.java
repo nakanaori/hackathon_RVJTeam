@@ -14,7 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.u_binusportal.R;
 import com.u_binusportal.activity.EditProfileUser;
+import com.u_binusportal.activity.MoreInformations;
 import com.u_binusportal.activity.entriesActivities.entries.RegisterUMKMActivity;
+import com.u_binusportal.forTesting.UserTesting;
+import com.u_binusportal.handlers.FragmentHandler;
 
 public class UserProfileFragment extends Fragment {
     private ImageView ProfileImage;
@@ -53,14 +56,17 @@ public class UserProfileFragment extends Fragment {
         MoreInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getActivity(), ));
+                startActivity(new Intent(getActivity(), MoreInformations.class));
             }
         });
 
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(getActivity(),));
+                // ubah jadi no user
+                UserTesting.hasUser = false;
+                UserTesting.isUserHasUMKM = false;
+                startActivity(new Intent(getActivity(), FragmentHandler.class));
             }
         });
 
