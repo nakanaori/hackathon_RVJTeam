@@ -7,6 +7,7 @@
     <string name="intro2">Pelaku Usaha Mikro Kecil Menengah menyediakan informasi terkait usaha yang dijalankannya termasuk produk dan layanan yang mereka sediakan</string>
     <string name="intro3">Pengguna non-UMKM dapat memperoleh informasi mengenai UMKM yang hendak ia cari serta produk dan layanan yang disediakan UMKM tersebut</string>
     <string name="alert_dialog_title">Select Image Option</string>
+    <string name="preference_key">credentials</string>
 
     <string-array name="image_options">
         <item>Choose photo from gallery</item>

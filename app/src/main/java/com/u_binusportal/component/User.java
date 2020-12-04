@@ -11,6 +11,14 @@ public class User {
     private String userTelephoneNumber;
     private Uri userImage;
 
+    public User(String userId, String userName, String userEmail, String userTelephoneNumber, Uri userImage) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userTelephoneNumber = userTelephoneNumber;
+        this.userImage = userImage;
+    }
+
     public Uri getUserImage() {
         return userImage;
     }
