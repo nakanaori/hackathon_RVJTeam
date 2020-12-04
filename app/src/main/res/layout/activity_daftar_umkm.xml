@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cyan"
+    android:background="@drawable/background_with_stroke"
    >
 <LinearLayout
     android:layout_width="match_parent"
@@ -19,6 +19,7 @@
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:layout_marginVertical="60dp"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -62,7 +63,8 @@
         android:text="Daftar"
         android:id="@+id/registerUmkm"
         android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/green"/>
 
 </LinearLayout>
 

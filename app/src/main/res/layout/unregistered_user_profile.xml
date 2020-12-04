@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_with_stroke">
 
     <Button
         android:id="@+id/masuk"
@@ -13,7 +14,8 @@
         android:text="Masuk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:background="@color/green"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -21,11 +23,13 @@
         android:layout_height="50dp"
         android:layout_marginTop="113dp"
         android:text="Daftar/Masuk untuk lanjut"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal" />
 
     <Button
         android:id="@+id/daftar"
@@ -35,7 +39,8 @@
         android:text="Daftar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:background="@color/green"/>
 
     <TextView
         android:id="@+id/textView4"

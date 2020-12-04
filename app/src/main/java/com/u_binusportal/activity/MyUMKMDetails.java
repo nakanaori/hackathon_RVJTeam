@@ -34,7 +34,6 @@ public class MyUMKMDetails extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // ini masih ragu
                 Intent i = new Intent(getApplication(), EditProfileUMKM.class);
                 startActivity(i);
             }
