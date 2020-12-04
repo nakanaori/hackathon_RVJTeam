@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(phonenumber)) {
             LoginPhoneNumberField.requestFocus();
             LoginPhoneNumberField.setError("Nomor telepon tidak boleh kosong");
+        } else if (TextUtils.getTrimmedLength(phonenumber) < 11 || TextUtils.getTrimmedLength(phonenumber) > 13) {
+            LoginPhoneNumberField.requestFocus();
+            LoginPhoneNumberField.setError("Jumlah digit diantara 11 dan 13");
         } else if (TextUtils.isEmpty(password)) {
             LoginPasswordField.requestFocus();
             LoginPasswordField.setError("Kata sandi tidak boleh kosong");
