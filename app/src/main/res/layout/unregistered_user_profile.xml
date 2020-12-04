@@ -17,11 +17,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="295dp"
-        android:layout_height="55dp"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
         android:layout_marginTop="113dp"
         android:text="Daftar/Masuk untuk lanjut"
         android:textSize="24sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
