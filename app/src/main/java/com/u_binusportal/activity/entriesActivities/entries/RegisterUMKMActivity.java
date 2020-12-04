@@ -1,6 +1,7 @@
 package com.u_binusportal.activity.entriesActivities.entries;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.pchmn.materialchips.ChipsInput;
 import com.u_binusportal.component.Category;
 import com.u_binusportal.R;
+import com.u_binusportal.forTesting.UserTesting;
+import com.u_binusportal.handlers.FragmentHandler;
 
 import java.util.ArrayList;
 
@@ -93,6 +96,9 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         } else if(TextUtils.getTrimmedLength(address) > 100){
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh lebih dari 100 karakter");
+        } else {
+            UserTesting.isUserHasUMKM = true;
+            startActivity(new Intent(this, FragmentHandler.class));
         }
 
     }

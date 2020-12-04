@@ -19,13 +19,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.pchmn.materialchips.ChipsInput;
 import com.u_binusportal.R;
+import com.u_binusportal.activity.fragmentActivities.fragment.UserUMKMProfileFragment;
 import com.u_binusportal.component.Category;
+import com.u_binusportal.forTesting.UserTesting;
 
 import java.util.ArrayList;
 
 public class EditProfileUser extends AppCompatActivity {
     private static final int GALLERY_REQUEST = 9;
     private static final int CAMERA_REQUEST = 11;
+
     private EditText editedName;
     private EditText editedEmail;
     private EditText editedNoPhone;
@@ -50,6 +53,8 @@ public class EditProfileUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("EditedText", editedName.getText().toString());
+                // update disini
+                finish();
             }
         });
 

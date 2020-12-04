@@ -1,6 +1,7 @@
 package com.u_binusportal.activity.entriesActivities.entries;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.u_binusportal.forTesting.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.component.User;
+import com.u_binusportal.forTesting.UserTesting;
+import com.u_binusportal.handlers.FragmentHandler;
 
 import java.util.ArrayList;
 
@@ -97,6 +100,8 @@ public class RegisterActivity extends AppCompatActivity {
                 DatabaseTest.addUser(newUser);
 //                Progress.dismiss();
                 Toast.makeText(RegisterActivity.this,"Register Success", Toast.LENGTH_LONG).show();
+                UserTesting.hasUser = true;
+                startActivity(new Intent(this, FragmentHandler.class));
             }
 
         }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UMKMDetails extends AppCompatActivity {
+public class MyUMKMDetails extends AppCompatActivity {
 
     // View
     private ListView productListView;

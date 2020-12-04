@@ -1,4 +1,4 @@
-package com.u_binusportal.activity.fragmentActivities.fragment;
+package com.u_binusportal.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +36,7 @@ public class EditProduct extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // ini logic nambah product umkm tersebut
 
             }
         });
@@ -43,6 +44,7 @@ public class EditProduct extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // ini logic delete product umkm tersebut
 
             }
         });

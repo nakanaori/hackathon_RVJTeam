@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.u_binusportal.activity.EditProfileUMKM;
-import com.u_binusportal.activity.UMKMDetails;
-import com.u_binusportal.activity.entriesActivities.entries.LoginActivity;
 import com.u_binusportal.handlers.FragmentHandler;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 //        call();
     }
     public void call() {
-        Intent i = new Intent(this, UMKMDetails.class );
+        Intent i = new Intent(this, FragmentHandler.class );
         startActivity(i);
     }
 
