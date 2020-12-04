@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.u_binusportal.handlers.FragmentHandler;
+import com.u_binusportal.handlers.InfoAppPageHandler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading);
-//        call();
+        call();
     }
     public void call() {
-        Intent i = new Intent(this, FragmentHandler.class );
+        Intent i = new Intent(this, InfoAppPageHandler.class );
         startActivity(i);
     }
 
