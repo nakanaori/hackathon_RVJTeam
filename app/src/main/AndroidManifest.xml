@@ -62,11 +62,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.u_binusportal.activity.AddProduct">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name="com.u_binusportal.activity.MyUMKMDetails">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

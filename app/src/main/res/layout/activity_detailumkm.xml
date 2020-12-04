@@ -62,7 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/header">
+            android:layout_below="@+id/header"
+            android:background="@color/newBlue">
 
             <TextView
                 android:layout_width="match_parent"

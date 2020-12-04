@@ -60,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/header">
+        android:layout_below="@+id/header"
+        android:background="@color/newBlue">
 
         <TextView
             android:layout_width="match_parent"
@@ -83,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="10dp"
-            android:text="Edit Detail" />
+            android:text="Edit Detail"
+            android:background="@color/green"/>
 
     </LinearLayout>
 
