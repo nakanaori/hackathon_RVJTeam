@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_with_stroke">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/cyan">
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/profile_header"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/colorAccent">
+            android:background="@color/newBlue">
 
             <ImageView
                 android:id="@+id/profile_pic2"
@@ -68,9 +68,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="299dp"
-            android:orientation="vertical"
-            android:background="@color/newBlue">
+            android:layout_height="500dp"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/menu_edit_profile2"
@@ -83,6 +83,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/newBlue"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -121,6 +122,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/newBlue"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -160,6 +162,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/newBlue"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -199,6 +202,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/newBlue"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -230,4 +234,4 @@
 
     </LinearLayout>
 
-    </ScrollView>
+</ScrollView>
