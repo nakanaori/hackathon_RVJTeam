@@ -21,6 +21,7 @@
         android:textStyle="bold"
         app:cursorColor="@color/newBlue"
         app:cursorWidth="2dp"
+        android:digits="0123456789"
         app:hideLineWhenFilled="true"
         app:itemCount="5"
         app:itemHeight="48dp"

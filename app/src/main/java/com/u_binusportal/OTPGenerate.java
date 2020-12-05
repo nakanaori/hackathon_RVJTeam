@@ -2,12 +2,8 @@ package com.u_binusportal;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,19 +17,21 @@ import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.u_binusportal.activity.entriesActivities.entries.RegisterActivity;
 import com.u_binusportal.component.User;
 import com.u_binusportal.forTesting.UserTesting;
 import com.u_binusportal.handlers.FragmentHandler;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class OTPGenerate extends AppCompatActivity {
 
@@ -46,12 +44,15 @@ public class OTPGenerate extends AppCompatActivity {
     private String phoneNumber;
     private String name;
     private String email;
+    private PhoneAuthProvider.ForceResendingToken token;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification_otp);
         inisialisasi();
+        context = this;
     }
 
     public void inisialisasi() {
@@ -61,10 +62,12 @@ public class OTPGenerate extends AppCompatActivity {
         pinView.setLineColor(
                 ResourcesCompat.getColorStateList(getResources(), R.color.newBlue, getTheme()));
 
+        token = getIntent().getParcelableExtra("token");
         OTP = getIntent().getStringExtra("auth");
         phoneNumber = getIntent().getStringExtra("phoneNumber");
         name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
+
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -85,8 +88,6 @@ public class OTPGenerate extends AppCompatActivity {
         pinView.setItemBackgroundResources(R.color.white);
 
         pinView.setHideLineWhenFilled(false);
-        pinView.setPasswordHidden(true);
-        pinView.setTransformationMethod(new PasswordTransformationMethod());
 
         btnVerif = findViewById(R.id.verifBTN);
         btnVerif.setOnClickListener(new View.OnClickListener() {
@@ -107,10 +108,37 @@ public class OTPGenerate extends AppCompatActivity {
         btnResend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // buat ulang
+
+                callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        signIn(phoneAuthCredential);
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(context, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        super.onCodeSent(s, forceResendingToken);
+                        Toast.makeText(context, "Kode OTP telah dikirimkan", Toast.LENGTH_SHORT).show();
+                    }
+                };
+
+                PhoneAuthOptions options =
+                        PhoneAuthOptions.newBuilder(firebaseAuth)
+                                .setForceResendingToken(token)
+                                .setPhoneNumber(phoneNumber)
+                                .setActivity(OTPGenerate.this)
+                                .setTimeout(60L, TimeUnit.SECONDS)
+                                .setCallbacks(callbacks).build();
+                PhoneAuthProvider.verifyPhoneNumber(options);
             }
         });
     }
+
 
     private void signIn(final PhoneAuthCredential credential){
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -126,16 +154,16 @@ public class OTPGenerate extends AppCompatActivity {
                                 res.put("id",newUser.getUserId());
                                 res.put("name",newUser.getUserName());
                                 res.put("email", newUser.getUserEmail());
-                                res.put("image", newUser.toString());
+                                res.put("image", newUser.getUserImage().toString());
                                 res.put("phoneNumber",newUser.getUserTelephoneNumber());
-                                db.collection("Users").document(phoneNumber).set(newUser);
+                                db.collection("Users").document(phoneNumber).set(res);
                                 Constant.currentUser = newUser;
                             } else {
                                 User user = new User(documentSnapshot.getString("id"),
                                         documentSnapshot.getString("name"),
                                         documentSnapshot.getString("email"),
                                         documentSnapshot.getString("phoneNumber"),
-                                        Uri.parse(documentSnapshot.getString("image")));
+                                        documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")));
                                 Constant.currentUser = user;
                             }
                         }

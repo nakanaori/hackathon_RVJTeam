@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.u_binusportal.Constant;
 import com.u_binusportal.R;
 import com.u_binusportal.activity.EditProfileUser;
 import com.u_binusportal.activity.MoreInformations;
@@ -27,6 +29,7 @@ public class UserUMKMProfileFragment extends Fragment {
     private View LogOut;
     private View EditUMKM;
     private View MoreInformation;
+    private FirebaseAuth db = FirebaseAuth.getInstance();
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile_user_umkm, container, false);
@@ -63,6 +66,9 @@ public class UserUMKMProfileFragment extends Fragment {
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //sign out
+                db.signOut();
+                Constant.currentUser = null;
                 UserTesting.isUserHasUMKM = false;
                 UserTesting.hasUser = false;
                 startActivity(new Intent(getActivity(), FragmentHandler.class));

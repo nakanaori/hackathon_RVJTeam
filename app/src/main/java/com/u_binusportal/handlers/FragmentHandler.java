@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.u_binusportal.Constant;
@@ -38,25 +39,28 @@ public class FragmentHandler extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        firebaseAuth = FirebaseAuth.getInstance();
 
         setContentView(R.layout.group_fragment); // main page
-        BottomNavigationView botNav = findViewById(R.id.bottom_menu_navigation); // set bar di bawah
+        final BottomNavigationView botNav = findViewById(R.id.bottom_menu_navigation); // set bar di bawah
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HalamanUtamaFragment()).commit();
 
         botNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
-
                 switch(item.getItemId()) {
                     case R.id.bot_navigation_home:
+                        botNav.getMenu().getItem(0).setChecked(true);
                         selectedFragment = new HalamanUtamaFragment();
                         break;
                     case R.id.bot_navigation_search:
+                        botNav.getMenu().getItem(1).setChecked(true);
                         selectedFragment = new PencarianFragment();
                         break;
                     case R.id.bot_navigation_profil:
+                        botNav.getMenu().getItem(2).setChecked(true);
+                        Log.v("User Sekarang",Constant.currentUser == null ? "usernya null" : "usernya gk null" + Constant.currentUser.toString());
                         if(firebaseAuth.getCurrentUser() != null){
                             db.collection("Users").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
@@ -65,7 +69,7 @@ public class FragmentHandler extends AppCompatActivity {
                                             documentSnapshot.getString("name"),
                                             documentSnapshot.getString("email"),
                                             documentSnapshot.getString("phoneNumber"),
-                                            Uri.parse(documentSnapshot.getString("image")));
+                                            documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")));
                                     Constant.currentUser = user;
                                 }
                             });
