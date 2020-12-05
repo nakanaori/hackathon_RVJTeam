@@ -16,39 +16,33 @@
         android:id="@+id/editUserImage"/>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama"
-        android:layout_marginHorizontal="20dp"
         android:id="@+id/editUserName"
-        android:layout_marginVertical="10dp"/>
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nomor Telepon"
+        android:layout_margin="20dp"
         android:layout_marginHorizontal="20dp"
-        android:id="@+id/editUserNoTelp"
-        android:layout_marginVertical="10dp"/>
+        android:layout_marginVertical="10dp"
+        android:hint="Nama" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_marginHorizontal="20dp"
         android:id="@+id/editUserEmail"
-        android:layout_marginVertical="10dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:hint="Email" />
 
     <Button
+        android:id="@+id/editUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Simpan Perubahan"
-        android:textAllCaps="false"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:background="@color/green"
-        android:id="@+id/editUserButton"
-        android:paddingHorizontal="20dp"/>
+        android:paddingHorizontal="20dp"
+        android:text="Simpan Perubahan"
+        android:textAllCaps="false" />
 
 
 </LinearLayout>
