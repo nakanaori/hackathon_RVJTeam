@@ -69,8 +69,6 @@ public class UserUMKMProfileFragment extends Fragment {
                 //sign out
                 db.signOut();
                 Constant.currentUser = null;
-                UserTesting.isUserHasUMKM = false;
-                UserTesting.hasUser = false;
                 startActivity(new Intent(getActivity(), FragmentHandler.class));
             }
         });

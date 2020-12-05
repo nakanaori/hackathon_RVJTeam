@@ -91,49 +91,11 @@ public class FragmentHandler extends AppCompatActivity {
                         }else{
                             selectedFragment = new UnregisteredUserFragment();
                         }
-
-//                        if(UserTesting.hasUser && UserTesting.isUserHasUMKM) selectedFragment = new UserUMKMProfileFragment();
-//                        else if(UserTesting.hasUser && !UserTesting.isUserHasUMKM) selectedFragment = new UserProfileFragment();
-//                        else selectedFragment = new UnregisteredUserFragment();
-//                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, selectedFragment).commit();
                 return false;
             }
         });
-
-//        NavController navController;
-//        AppBarConfiguration appBarConfiguration;
-//
-//
-//        if(hasUser && isUserHasUMKM) {
-//            Log.v("masuk kondisi", "user punya umkm");
-//            navController = Navigation.findNavController(this, R.id.nav_inti);
-//
-//            appBarConfiguration = new AppBarConfiguration.Builder(
-//                    R.id.navigation_home, R.id.navigation_search, R.id.navigation_profil_user_umkm).build();
-//
-//        } else if(hasUser && !isUserHasUMKM) {
-//            Log.v("masuk kondisi", "user saja");
-//            navController = Navigation.findNavController(this, R.id.nav_inti);
-//
-//            appBarConfiguration = new AppBarConfiguration.Builder(
-//                    R.id.navigation_home, R.id.navigation_search, R.id.navigation_profil_user).build();
-//        } else {
-//            Log.v("masuk kondisi", "no user");
-//            navController = Navigation.findNavController(this, R.id.nav_inti);
-//
-//            appBarConfiguration = new AppBarConfiguration.Builder(
-//                    R.id.navigation_home, R.id.navigation_search, R.id.navigation_profil_nouser).build();
-//        }
-//
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(botNav, navController);
-    }
-
-    @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
     }
 }
 
