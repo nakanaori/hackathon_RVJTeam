@@ -97,5 +97,10 @@ public class FragmentHandler extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+    }
 }
 
