@@ -13,21 +13,26 @@ import androidx.annotation.Nullable;
 
 import com.u_binusportal.R;
 import com.u_binusportal.component.UMKMListItemForLV;
+import com.u_binusportal.component.Umkm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 // class ini akan dipakai untuk halaman utama dan pencarian
 
-public class UMKMListAdapter extends ArrayAdapter<UMKMListItemForLV> {
+public class UMKMListAdapter extends ArrayAdapter<Umkm> {
 
     private Context c;
-    private List<UMKMListItemForLV> item;
+    private ArrayList<Umkm> item;
 
-    public UMKMListAdapter(@NonNull Context context, @NonNull ArrayList<UMKMListItemForLV> objects) {
+    public UMKMListAdapter(@NonNull Context context, @NonNull ArrayList<Umkm> objects) {
         super(context, R.layout.custom_list_item_home, objects);
         this.c = context;
         this.item = objects;
+    }
+
+    public Umkm getItem(int position){
+        return item.get(position);
     }
 
     @NonNull
@@ -37,16 +42,16 @@ public class UMKMListAdapter extends ArrayAdapter<UMKMListItemForLV> {
         if(listItem == null) {
             listItem = LayoutInflater.from(c).inflate(R.layout.custom_list_item_home, parent, false);
         }
-        UMKMListItemForLV currentItem = item.get(position);
+        Umkm currentItem = item.get(position);
 
         ImageView umkmPhotos = (ImageView) listItem.findViewById(R.id.imageViewListHU);
         umkmPhotos.setImageResource(currentItem.getImageR());
 
         TextView namaUMKM = (TextView) listItem.findViewById(R.id.textViewHeader);
-        namaUMKM.setText(currentItem.getTitle());
+        namaUMKM.setText(currentItem.getUmkmName());
 
         TextView catUMKM = (TextView) listItem.findViewById(R.id.textViewCategory);
-        catUMKM.setText(currentItem.getDesc());
+        catUMKM.setText(currentItem.getUmkmDescription());
 
         return listItem;
     }

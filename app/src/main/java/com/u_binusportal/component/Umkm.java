@@ -1,10 +1,12 @@
 package com.u_binusportal.component;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.UUID;
 
-public class Umkm {
+public class Umkm implements Parcelable {
     private String umkmId;
     private String umkmName;
     private String umkmDescription;
@@ -20,6 +22,17 @@ public class Umkm {
 
     public void setUmkmImage(Uri umkmImage) {
         this.umkmImage = umkmImage;
+    }
+
+    public Umkm(String umkmId, String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage, int imageR, String userID) {
+        this.umkmId = umkmId;
+        this.umkmName = umkmName;
+        this.umkmDescription = umkmDescription;
+        this.umkmCategory = umkmCategory;
+        this.umkmAddress = umkmAddress;
+        this.umkmImage = umkmImage;
+        this.imageR = imageR;
+        this.userID = userID;
     }
 
     public Umkm(String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage, int i, String userID) {
@@ -104,4 +117,44 @@ public class Umkm {
         }
         return res;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.umkmId);
+        dest.writeString(this.umkmName);
+        dest.writeString(this.umkmDescription);
+        dest.writeStringArray(this.umkmCategory);
+        dest.writeString(this.umkmAddress);
+        dest.writeParcelable(this.umkmImage, flags);
+        dest.writeInt(this.imageR);
+        dest.writeString(this.userID);
+    }
+
+    protected Umkm(Parcel in) {
+        this.umkmId = in.readString();
+        this.umkmName = in.readString();
+        this.umkmDescription = in.readString();
+        this.umkmCategory = in.createStringArray();
+        this.umkmAddress = in.readString();
+        this.umkmImage = in.readParcelable(Uri.class.getClassLoader());
+        this.imageR = in.readInt();
+        this.userID = in.readString();
+    }
+
+    public static final Parcelable.Creator<Umkm> CREATOR = new Parcelable.Creator<Umkm>() {
+        @Override
+        public Umkm createFromParcel(Parcel source) {
+            return new Umkm(source);
+        }
+
+        @Override
+        public Umkm[] newArray(int size) {
+            return new Umkm[size];
+        }
+    };
 }
