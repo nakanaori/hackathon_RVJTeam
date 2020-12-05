@@ -77,10 +77,10 @@ public class PencarianFragment extends Fragment {
 
         // mulai cari dari sini
         ArrayList<Umkm> d_Umkm = database.getUmkm();
-        ArrayList<UMKMListItemForLV> toBeShown = new ArrayList<>();
+        ArrayList<Umkm> toBeShown = new ArrayList<>();
 
         if(queryUser.isEmpty() || queryUser.equals("")) {
-            adapter = new UMKMListAdapter(getActivity(), new ArrayList<UMKMListItemForLV>());
+            adapter = new UMKMListAdapter(getActivity(), new ArrayList<Umkm>());
             listview.setAdapter(adapter);
             return;
         }
@@ -93,7 +93,7 @@ public class PencarianFragment extends Fragment {
             // 1.
             // CEK KALAU DIA NYARI NAMA UMKM / MISAL (KENTUCKY -> KENTUCKY FRIED CHICKEN)
             if(x.getUmkmName().toLowerCase().contains(queryUser)) {
-                toBeShown.add(x.convertToBeShownInLV());
+                toBeShown.add(x);
                 continue;
             }
 
@@ -109,7 +109,7 @@ public class PencarianFragment extends Fragment {
             for (String s : temp) {
                 for (int j = 0; j < len2; j++) {
                     if (x.getUmkmCategory()[j].toLowerCase().contains(s)) {
-                        toBeShown.add(x.convertToBeShownInLV());
+                        toBeShown.add(x);
                         flag = true;
                         break;
                     }

@@ -28,6 +28,7 @@ import com.u_binusportal.activity.fragmentActivities.fragment.PencarianFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UnregisteredUserFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UserProfileFragment;
 import com.u_binusportal.activity.fragmentActivities.fragment.UserUMKMProfileFragment;
+import com.u_binusportal.component.Umkm;
 import com.u_binusportal.component.User;
 import com.u_binusportal.forTesting.UserTesting;
 
@@ -78,6 +79,15 @@ public class FragmentHandler extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
                                        umkmExists = true;
+                                       Constant.currentUmkm = new Umkm(documentSnapshot.getString("id"),
+                                               documentSnapshot.getString("name"),
+                                               documentSnapshot.getString("description"),
+                                               (String[]) documentSnapshot.get("category"),
+                                               documentSnapshot.getString("address"),
+                                               documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")),
+                                               Integer.parseInt(documentSnapshot.getString("imgId")),
+                                               documentSnapshot.getString("userId")
+                                               );
                                     }else{
                                         umkmExists = false;
                                     }

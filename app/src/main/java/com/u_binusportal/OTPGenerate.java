@@ -154,7 +154,7 @@ public class OTPGenerate extends AppCompatActivity {
                                 res.put("id",newUser.getUserId());
                                 res.put("name",newUser.getUserName());
                                 res.put("email", newUser.getUserEmail());
-                                res.put("image", newUser.getUserImage().toString());
+                                res.put("image", newUser.getUserImage() == null ? null : newUser.getUserImage().toString());
                                 res.put("phoneNumber",newUser.getUserTelephoneNumber());
                                 db.collection("Users").document(phoneNumber).set(res);
                                 Constant.currentUser = newUser;
