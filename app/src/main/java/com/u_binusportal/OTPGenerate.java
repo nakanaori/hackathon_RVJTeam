@@ -42,7 +42,6 @@ public class OTPGenerate extends AppCompatActivity {
     private String OTP;
     private FirebaseAuth firebaseAuth;
     private Context context;
-    private SharedPreferences preferences;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String phoneNumber;
     private String name;
@@ -56,7 +55,6 @@ public class OTPGenerate extends AppCompatActivity {
     }
 
     public void inisialisasi() {
-        preferences = OTPGenerate.this.getSharedPreferences(getString(R.string.preference_key), MODE_PRIVATE);
         pinView = findViewById(R.id.firstPinView);
         pinView.setTextColor(
                 ResourcesCompat.getColorStateList(getResources(), R.color.newBlue, getTheme()));
@@ -142,9 +140,6 @@ public class OTPGenerate extends AppCompatActivity {
                             }
                         }
                     });
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("credentials",credential.toString());
-                    editor.apply();
                     moveToFragment();
                 }else{
                     Toast.makeText(OTPGenerate.this, "Kode OTP Salah", Toast.LENGTH_SHORT).show();

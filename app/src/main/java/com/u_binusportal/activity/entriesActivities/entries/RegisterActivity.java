@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Nomor telepon tidak boleh kosong");
 
-        } else if (TextUtils.getTrimmedLength(phonenumber) < 11 || TextUtils.getTrimmedLength(phonenumber) > 13) {
+        } else if (TextUtils.getTrimmedLength(phonenumber) < 13 || TextUtils.getTrimmedLength(phonenumber) > 15) {
             PhoneNumberField.requestFocus();
             PhoneNumberField.setError("Nomor telepon harus diantara 11-13 digit");
         } else {

@@ -3,6 +3,7 @@ package com.u_binusportal;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,7 +17,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.loading);
+        SharedPreferences preferences = MainActivity.this.getSharedPreferences("everLogged", MODE_PRIVATE);
+        if(preferences.getBoolean("ever_logged_in",true)){
+            //pertama kali menggunakan app ini
+            preferences.edit().putBoolean("ever_logged_in",false).apply();
+        }else{
+            //sudah pernah menggunakan app ini
+
+        }
         call();
     }
     public void call() {
