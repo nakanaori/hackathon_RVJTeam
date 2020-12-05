@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button LoginButton;
     private TextView RegisterLink;
     private ProgressDialog Progress;
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String phonenumber;
     private String name;
@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DatabaseTest.addUser(new User("dodo", "dodo", "081291358587",null));
         LoginPhoneNumberField = findViewById(R.id.login_phone_number);
         LoginButton = findViewById(R.id.login_button);
         RegisterLink = findViewById(R.id.sign_up_hyperlink);
@@ -84,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkLogin() {
         phonenumber = LoginPhoneNumberField.getText().toString().trim().replaceFirst("0","+62");
+
         if (TextUtils.isEmpty(phonenumber)) {
             LoginPhoneNumberField.requestFocus();
             LoginPhoneNumberField.setError("Nomor telepon tidak boleh kosong");
@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                                 otpIntent.putExtra("name", name);
                                 otpIntent.putExtra("email",email);
                                 otpIntent.putExtra("phoneNumber", phonenumber);
+                                otpIntent.putExtra("token",forceResendingToken);
                                 startActivity(otpIntent);
                             }
                         };
@@ -135,9 +136,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             });
-
-            Intent intent = new Intent(this, OTPGenerate.class);
-            startActivity(intent);
         }
     }
 
@@ -146,8 +144,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(id, name, email, phonenumber, image);
-                    Constant.currentUser = user;
+                    db.collection("Users").document(phonenumber).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            User user = new User(documentSnapshot.getString("id"),
+                                    documentSnapshot.getString("name"),
+                                    documentSnapshot.getString("email"),
+                                    documentSnapshot.getString("phoneNumber"),
+                                    documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")));
+                            Constant.currentUser = user;
+                        }
+                    });
                 }
             }
         });

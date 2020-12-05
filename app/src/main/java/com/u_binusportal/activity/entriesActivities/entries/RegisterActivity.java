@@ -4,8 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,10 +29,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.u_binusportal.Constant;
 import com.u_binusportal.OTPGenerate;
-import com.u_binusportal.forTesting.DatabaseTest;
 import com.u_binusportal.R;
 import com.u_binusportal.component.User;
-import com.u_binusportal.forTesting.UserTesting;
 import com.u_binusportal.handlers.FragmentHandler;
 
 import java.util.ArrayList;
@@ -74,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("Register","masuk register");
                 startRegisterUser();
             }
         });
@@ -104,9 +103,12 @@ public class RegisterActivity extends AppCompatActivity {
             db.collection("Users").document(phonenumber).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Log.v("Register", "sukses ambil dari database");
                     if(documentSnapshot.exists()){
+                        Log.v("Register","Ada data");
                         Toast.makeText(RegisterActivity.this, "User telah didaftarkan. Silahkan masuk", Toast.LENGTH_SHORT).show();
                     }else{
+                        Log.v("Register","Tidak ada data");
                         callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -127,6 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 otpIntent.putExtra("name", name);
                                 otpIntent.putExtra("email",email);
                                 otpIntent.putExtra("phoneNumber", phonenumber);
+                                otpIntent.putExtra("token", forceResendingToken);
                                 startActivity(otpIntent);
                             }
                         };
@@ -138,6 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         .setActivity(RegisterActivity.this)
                                         .setCallbacks(callbacks)
                                         .build();
+                        Log.v("Register","Callback dan options udah lewat");
                         PhoneAuthProvider.verifyPhoneNumber(options);
                     }
                 }
@@ -160,9 +164,9 @@ public class RegisterActivity extends AppCompatActivity {
                         res.put("id",newUser.getUserId());
                         res.put("name",newUser.getUserName());
                         res.put("email", newUser.getUserEmail());
-                        res.put("image", newUser.toString());
+                        res.put("image", newUser.getUserImage().toString());
                         res.put("phoneNumber",newUser.getUserTelephoneNumber());
-                        db.collection("Users").document(phonenumber).set(newUser);
+                        db.collection("Users").document(phonenumber).set(res);
                         Constant.currentUser = newUser;
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.apply();

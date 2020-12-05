@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.u_binusportal.activity.entriesActivities.entries.LoginActivity;
 import com.u_binusportal.activity.entriesActivities.entries.RegisterActivity;
 import com.u_binusportal.activity.entriesActivities.entries.RegisterUMKMActivity;
 import com.u_binusportal.handlers.FragmentHandler;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         call();
     }
     public void call() {
-        Intent i = new Intent(this, RegisterActivity.class );
+        Intent i = new Intent(this, LoginActivity.class );
         startActivity(i);
     }
 
