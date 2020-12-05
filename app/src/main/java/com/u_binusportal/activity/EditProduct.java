@@ -10,9 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.u_binusportal.R;
+import com.u_binusportal.component.Product;
 
 public class EditProduct extends AppCompatActivity {
-    private ImageView profileImage;
+    private ImageView productImage;
     private EditText addProductName;
     private EditText addProductDesc;
     private EditText addProductPrice;
@@ -25,12 +26,13 @@ public class EditProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product);
 
-        profileImage = findViewById(R.id.productNewImage);
+        productImage = findViewById(R.id.productNewImage);
         addProductName = findViewById(R.id.addProductName);
         addProductDesc = findViewById(R.id.addProductDescription);
         addProductPrice = findViewById(R.id.addProductPrice);
-        deleteProductName = findViewById(R.id.deleteProductName);
         addButton = findViewById(R.id.add_product);
+
+        deleteProductName = findViewById(R.id.deleteProductName);
         deleteButton = findViewById(R.id.delete_product);
 
         addButton.setOnClickListener(new View.OnClickListener() {
