@@ -1,15 +1,20 @@
 package com.u_binusportal;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,72 +29,50 @@ import com.u_binusportal.handlers.InfoAppPageHandler;
 
 import org.w3c.dom.Document;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private SharedPreferences preferences;
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferences = MainActivity.this.getSharedPreferences("everLogged", MODE_PRIVATE);
-        Constant.updateUmkm();
-        if(firebaseAuth.getCurrentUser() != null){
-            userIsLogin();
-        }
-        if(preferences.getBoolean("ever_logged_in",true)){
-            //pertama kali menggunakan app ini
-            startActivity(new Intent(MainActivity.this, InfoAppPageHandler.class));
-            preferences.edit().putBoolean("ever_logged_in",false).apply();
-        } else{
-            setContentView(R.layout.group_fragment);
-            call();
-        }
-    }
-    public void call() {
-        Intent i = new Intent(this, FragmentHandler.class );
-        startActivity(i);
-    }
+        setContentView(R.layout.loading);
 
-    // ini cuma untuk testing fragment dengan navigasi aja
-    public void toFragment(View view) {
-        Intent i = new Intent(this, FragmentHandler.class );
-        startActivity(i);
-    }
-
-    public void userIsLogin(){
-        db.collection("Users").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        Constant.db_static.collection("Umkm").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Log.v("Kosong","Kosong ");
-                User user = new User(documentSnapshot.getString("id"),
-                        documentSnapshot.getString("name"),
-                        documentSnapshot.getString("email"),
-                        documentSnapshot.getString("phoneNumber"),
-                        documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")));
-                Constant.currentUser = user;
-                db.collection("Umkm").document(Constant.currentUser.getUserId()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Log.v("sini","masuk sini" + Constant.currentUser.getUserId());
-                        Log.v("sini","document.exists" + documentSnapshot.exists());
-                        if(documentSnapshot.exists()){
-                            Constant.currentUmkm = new Umkm(documentSnapshot.getString("id"),
-                                    documentSnapshot.getString("name"),
-                                    documentSnapshot.getString("description"),
-                                    (List<String>) documentSnapshot.get("category"),
-                                    documentSnapshot.getString("address"),
-                                    documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")),
-                                    documentSnapshot.getString("imgId") == null ? 0 : Integer.parseInt(documentSnapshot.getString("imgId")),
-                                    documentSnapshot.getString("userId")
-                            );
-                        }
-                    }
-                });
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                Constant.totalUmkm = new HashMap<>();
+                Constant.UmkmArrayList = new ArrayList<>();
+                List<DocumentSnapshot> lists = task.getResult().getDocuments();
+                for(DocumentSnapshot list : lists){
+                    Umkm umkm = new Umkm(list.getString("id"),
+                            list.getString("name"),
+                            list.getString("description"),
+                            (List<String>) list.get("category"),
+                            list.getString("address"),
+                            list.getString("image") == null ? null : Uri.parse(list.getString("image")),
+                            list.getString("imgId") == null ? 0 : Integer.parseInt(list.getString("imgId")),
+                            list.getString("userId")
+                    );
+                    Log.v("Konstan","test" + umkm.getUmkmId());
+                    Constant.UmkmArrayList.add(umkm);
+                    Constant.totalUmkm.put(list.getString("userId"), umkm);
+                }
             }
         });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), SplashScreen.class));
+            }
+        }, 5000);
+
+
+
     }
+
+
 }

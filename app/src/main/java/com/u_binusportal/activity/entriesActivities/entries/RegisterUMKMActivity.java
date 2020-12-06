@@ -164,7 +164,6 @@ public class RegisterUMKMActivity extends AppCompatActivity {
             db.collection("Umkm").document(Constant.currentUser.getUserId()).set(hash);
 
             Constant.currentUmkm = newUmkm;
-            Constant.updateUmkm();
             startActivity(new Intent(this, FragmentHandler.class));
         }
 

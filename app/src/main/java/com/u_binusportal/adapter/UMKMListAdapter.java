@@ -1,6 +1,7 @@
 package com.u_binusportal.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,13 @@ public class UMKMListAdapter extends ArrayAdapter<Umkm> {
 
     private Context c;
     private ArrayList<Umkm> item;
+    int resource;
 
     public UMKMListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Umkm> item) {
         super(context, resource);
         this.c = context;
         this.item = item;
+        this.resource = resource;
     }
 
     public Umkm getItem(int position){
@@ -36,10 +39,7 @@ public class UMKMListAdapter extends ArrayAdapter<Umkm> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View listItem = convertView;
-        if(listItem == null) {
-            listItem = LayoutInflater.from(c).inflate(R.layout.custom_list_item_home, parent, false);
-        }
+        View listItem = LayoutInflater.from(c).inflate(R.layout.custom_list_item_home, parent, false);
         Umkm currentItem = item.get(position);
 
         ImageView umkmPhotos = (ImageView) listItem.findViewById(R.id.imageViewListHU);
@@ -50,7 +50,6 @@ public class UMKMListAdapter extends ArrayAdapter<Umkm> {
 
         TextView catUMKM = (TextView) listItem.findViewById(R.id.textViewCategory);
         catUMKM.setText(currentItem.getUmkmDescription());
-
         return listItem;
     }
 }

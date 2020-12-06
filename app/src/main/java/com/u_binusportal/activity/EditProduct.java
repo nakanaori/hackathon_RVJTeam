@@ -80,7 +80,6 @@ public class EditProduct extends AppCompatActivity {
                             productRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-
                                     editedUri = uri;
                                     newProd.setImgURI(editedUri);
                                     HashMap<String, Object> hash = storeToHashmap(newProd);

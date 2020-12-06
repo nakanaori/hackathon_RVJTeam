@@ -46,7 +46,6 @@ public class FragmentHandler extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
-
         setContentView(R.layout.group_fragment); // main page
         final BottomNavigationView botNav = findViewById(R.id.bottom_menu_navigation); // set bar di bawah
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HalamanUtamaFragment()).commit();
