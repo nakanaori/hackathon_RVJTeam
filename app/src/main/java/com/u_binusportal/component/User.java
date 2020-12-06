@@ -2,6 +2,8 @@ package com.u_binusportal.component;
 
 import android.net.Uri;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class User {
@@ -65,6 +67,16 @@ public class User {
 
     public void setUserTelephoneNumber(String userTelephoneNumber) {
         this.userTelephoneNumber = userTelephoneNumber;
+    }
+
+    public HashMap<String, Object> storeToHash(){
+        HashMap<String, Object> res = new HashMap<>();
+        res.put("id",this.userId);
+        res.put("name",this.userName);
+        res.put("email", this.userEmail);
+        res.put("image", this.userImage == null ? null : this.userImage.toString());
+        res.put("phoneNumber",this.userTelephoneNumber);
+        return res;
     }
 
     @Override

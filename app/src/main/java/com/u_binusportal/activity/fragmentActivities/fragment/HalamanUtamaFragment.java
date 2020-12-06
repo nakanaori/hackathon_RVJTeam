@@ -41,17 +41,17 @@ public class HalamanUtamaFragment extends Fragment {
 
         Constant.updateUmkm();
 
-//        final UMKMListAdapter adapter = new UMKMListAdapter(getActivity(), Constant.UmkmArrayList);
-//        listview.setAdapter(adapter);
-//        // INI NANTI NGEDIRECT KE PROFIL UMKM TERTENTU
+        final UMKMListAdapter adapter = new UMKMListAdapter(getActivity(), R.layout.custom_list_item_home, Constant.UmkmArrayList);
+        listview.setAdapter(adapter);
+//         INI NANTI NGEDIRECT KE PROFIL UMKM TERTENTU
 //        // BELUM DIMASUKKAN LOGIC
-//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent umkmIntent = new Intent(getActivity(), UMKMDetailsTokoTertentu.class);
-//                umkmIntent.putExtra("umkm", (Parcelable) adapter.getItem(i));
-//                startActivity(new Intent(getActivity(), UMKMDetailsTokoTertentu.class));
-//            }
-//        });
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent umkmIntent = new Intent(getActivity(), UMKMDetailsTokoTertentu.class);
+                umkmIntent.putExtra("umkm", (Parcelable) adapter.getItem(i));
+                startActivity(umkmIntent);
+            }
+        });
     }
 }

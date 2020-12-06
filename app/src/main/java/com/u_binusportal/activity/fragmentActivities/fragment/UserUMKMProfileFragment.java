@@ -42,6 +42,8 @@ public class UserUMKMProfileFragment extends Fragment {
         LogOut = rootView.findViewById(R.id.menu_logout2);
         MoreInformation = rootView.findViewById(R.id.menu_information2);
 
+        Name.setText(Constant.currentUser.getUserName());
+
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

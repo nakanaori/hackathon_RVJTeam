@@ -33,7 +33,7 @@ public class Constant {
                     Umkm umkm = new Umkm(list.getString("id"),
                             list.getString("name"),
                             list.getString("description"),
-                            (String[]) list.get("category"),
+                            (List<String>) list.get("category"),
                             list.getString("address"),
                             list.getString("image") == null ? null : Uri.parse(list.getString("image")),
                             Integer.parseInt(list.getString("imgId")),
