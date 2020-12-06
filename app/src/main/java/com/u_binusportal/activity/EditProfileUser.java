@@ -67,7 +67,7 @@ public class EditProfileUser extends AppCompatActivity {
                 Constant.currentUser.setUserName(updatedName);
                 Constant.currentUser.setUserEmail(updatedEmail);
                 Constant.currentUser.setUserImage(updatedImage);
-                db.collection("User").document(Constant.currentUser.getUserTelephoneNumber()).set(Constant.currentUser.storeToHash());
+                db.collection("Users").document(Constant.currentUser.getUserTelephoneNumber()).set(Constant.currentUser.storeToHash());
                 finish();
             }
         });
