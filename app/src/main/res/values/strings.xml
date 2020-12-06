@@ -13,4 +13,19 @@
         <item>Choose photo from gallery</item>
         <item>Take picture with camera</item>
     </string-array>
+
+    <string-array name="category">
+        <item>Makanan</item>
+        <item>Minuman</item>
+        <item>Pakaian</item>
+        <item>Hobi</item>
+        <item>Kosmetik</item>
+        <item>Pertanian</item>
+        <item>Kosmetik</item>
+        <item>Perabotan Rumah Tangga</item>
+        <item>Jasa</item>
+        <item>Souvenir</item>
+        <item>Kesehatan</item>
+        <item>Lain-lain</item>
+    </string-array>
 </resources>
