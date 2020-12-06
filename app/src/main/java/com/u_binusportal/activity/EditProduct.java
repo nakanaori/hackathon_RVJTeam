@@ -1,5 +1,6 @@
 package com.u_binusportal.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,8 +10,14 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.u_binusportal.Constant;
 import com.u_binusportal.R;
 import com.u_binusportal.component.Product;
+
+import java.util.HashMap;
+
 
 public class EditProduct extends AppCompatActivity {
     private ImageView productImage;
@@ -20,6 +27,7 @@ public class EditProduct extends AppCompatActivity {
     private EditText deleteProductName;
     private Button addButton;
     private Button deleteButton;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,8 +46,10 @@ public class EditProduct extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ini logic nambah product umkm tersebut
-
+                Product newProd = getProductInserted();
+                HashMap<String, Object> hash = storeToHashmap(newProd);
+                db.collection("Produk").document(Constant.currentUmkm.getUmkmId())
+                        .collection("UMKMProduk").document(newProd.getProductId()).set(hash);
             }
         });
 
@@ -51,4 +61,34 @@ public class EditProduct extends AppCompatActivity {
             }
         });
     }
+
+    private Product getProductInserted() {
+        String pName = this.addProductName.getText().toString();
+        String pDesc = this.addProductDesc.getText().toString();
+        long pPrice = Long.parseLong(this.addProductPrice.getText().toString());
+        String umkmID = Constant.currentUmkm.getUmkmId();
+
+        // TIGA LINE INI BELUM KETEMU CARANYA
+        ImageView img = null;
+        int imageResources = Integer.parseInt(null);
+        Uri imageUri = null;
+
+        return new Product(pName, pDesc, pPrice, imageUri, imageResources, umkmID);
+    }
+
+    private HashMap<String, Object> storeToHashmap(Product product) {
+        HashMap<String, Object> newHash = new HashMap<>();
+        newHash.put("id", product.getProductId());
+        newHash.put("name", product.getProductName());
+        newHash.put("description", product.getProductDescription());
+        newHash.put("price", product.getProductPrice());
+
+        // ini ragu juga, apakah "image" yang kau mau Uri / ImageView ??
+        newHash.put("imageInt", product.getProductImage());
+        newHash.put("image", product.getImgURI());
+        //
+        newHash.put("umkmId", product.getUmkmId());
+        return newHash;
+    }
+
 }

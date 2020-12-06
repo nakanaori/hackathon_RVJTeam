@@ -12,23 +12,30 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pchmn.materialchips.ChipsInput;
+import com.pchmn.materialchips.model.ChipInterface;
+import com.u_binusportal.Constant;
 import com.u_binusportal.component.Category;
 import com.u_binusportal.R;
+import com.u_binusportal.component.Umkm;
 import com.u_binusportal.forTesting.UserTesting;
 import com.u_binusportal.handlers.FragmentHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class RegisterUMKMActivity extends AppCompatActivity {
 
     private EditText UMKMNameField;
     private EditText AddressField;
     private EditText DescriptionField;
-    private Spinner Category;
+    private ChipsInput category;
 
     private Button RegisterUMKMButton;
     private ProgressDialog Progress;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +50,7 @@ public class RegisterUMKMActivity extends AppCompatActivity {
 
         Progress = new ProgressDialog(this);
 
-        ChipsInput category = (ChipsInput) findViewById(R.id.addUmkmCategory);
+        category = findViewById(R.id.addUmkmCategory);
         ArrayList<com.u_binusportal.component.Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("C001","Makanan"));
         categoryList.add(new Category("C002","Minuman"));
@@ -97,9 +104,41 @@ public class RegisterUMKMActivity extends AppCompatActivity {
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh lebih dari 100 karakter");
         } else {
-            UserTesting.isUserHasUMKM = true;
+            //
+            List<Category> selectedList = (List<Category>) category.getSelectedChipList();
+            Umkm newUmkm = doAddUMKM(name, description, address, selectedList);
+
+            HashMap<String, Object> hash = storeToHash(newUmkm);
+            db.collection("Umkm").document(Constant.currentUser.getUserId()).set(hash);
+
+            Constant.currentUmkm = newUmkm;
+            Constant.updateUmkm();
             startActivity(new Intent(this, FragmentHandler.class));
         }
 
+    }
+
+    private Umkm doAddUMKM(String name, String description, String address, List<Category> categories) {
+
+        List<String> listOfCategory = new ArrayList<>();
+        for(Category currentCategory : categories) {
+            listOfCategory.add(currentCategory.getLabel());
+        }
+        return new Umkm(name, description, address, listOfCategory);
+    }
+
+    private HashMap<String, Object> storeToHash (Umkm currentUmkm) {
+        HashMap<String, Object> newHash = new HashMap<>();
+        newHash.put("id", currentUmkm.getUmkmId());
+        newHash.put("name", currentUmkm.getUmkmName());
+        newHash.put("description", currentUmkm.getUmkmDescription());
+        newHash.put("address", currentUmkm.getUmkmAddress());
+        newHash.put("category", currentUmkm.getUmkmCategory());
+        newHash.put("userId", currentUmkm.getUserID());
+
+        // ini udah diwrap di constructor baru sebagai null
+        newHash.put("image", currentUmkm.getUmkmImage());
+        newHash.put("imageInt", currentUmkm.getImageR());
+        return newHash;
     }
 }

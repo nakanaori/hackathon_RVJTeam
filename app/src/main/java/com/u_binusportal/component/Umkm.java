@@ -4,13 +4,16 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.u_binusportal.Constant;
+
+import java.util.List;
 import java.util.UUID;
 
 public class Umkm implements Parcelable {
     private String umkmId;
     private String umkmName;
     private String umkmDescription;
-    private String[] umkmCategory;
+    private List<String> umkmCategory;
     private String umkmAddress;
     private Uri umkmImage;
     private int imageR;
@@ -24,7 +27,7 @@ public class Umkm implements Parcelable {
         this.umkmImage = umkmImage;
     }
 
-    public Umkm(String umkmId, String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage, int imageR, String userID) {
+    public Umkm(String umkmId, String umkmName, String umkmDescription, List<String> umkmCategory, String umkmAddress, Uri umkmImage, int imageR, String userID) {
         this.umkmId = umkmId;
         this.umkmName = umkmName;
         this.umkmDescription = umkmDescription;
@@ -35,7 +38,7 @@ public class Umkm implements Parcelable {
         this.userID = userID;
     }
 
-    public Umkm(String umkmName, String umkmDescription, String[] umkmCategory, String umkmAddress, Uri umkmImage, int i, String userID) {
+    public Umkm(String umkmName, String umkmDescription, List<String> umkmCategory, String umkmAddress, Uri umkmImage, int i, String userID) {
         this.umkmId = UUID.randomUUID().toString();
         this.umkmName = umkmName;
         this.umkmDescription = umkmDescription;
@@ -44,6 +47,17 @@ public class Umkm implements Parcelable {
         this.umkmImage = umkmImage;
         this.imageR = i;
         this.userID = userID;
+    }
+
+    public Umkm(String name, String umkmDescription, String umkmAddress, List<String> umkmCategory) {
+        this.umkmId = UUID.randomUUID().toString();
+        this.umkmName = name;
+        this.umkmDescription = umkmDescription;
+        this.umkmCategory = umkmCategory;
+        this.umkmAddress = umkmAddress;
+        this.umkmImage = null;
+        this.imageR = Integer.parseInt(null);
+        this.userID = Constant.currentUser.getUserId();
     }
 
     public String getUserID() {
@@ -78,11 +92,11 @@ public class Umkm implements Parcelable {
         this.umkmDescription = umkmDescription;
     }
 
-    public String[] getUmkmCategory() {
+    public List<String> getUmkmCategory() {
         return umkmCategory;
     }
 
-    public void setUmkmCategory(String[] umkmCategory) {
+    public void setUmkmCategory(List<String> umkmCategory) {
         this.umkmCategory = umkmCategory;
     }
 
@@ -100,12 +114,6 @@ public class Umkm implements Parcelable {
 
     public void setImageR(int i) {
         this.imageR = i;
-    }
-
-    public UMKMListItemForLV convertToBeShownInLV() {
-        String category = "Kategori: " + traverse(umkmCategory);
-        UMKMListItemForLV item = new UMKMListItemForLV(this.umkmName, category, this.umkmImage, this.imageR);
-        return item;
     }
 
     private String traverse(String [] x) {
@@ -128,7 +136,7 @@ public class Umkm implements Parcelable {
         dest.writeString(this.umkmId);
         dest.writeString(this.umkmName);
         dest.writeString(this.umkmDescription);
-        dest.writeStringArray(this.umkmCategory);
+        dest.writeStringList(this.umkmCategory);
         dest.writeString(this.umkmAddress);
         dest.writeParcelable(this.umkmImage, flags);
         dest.writeInt(this.imageR);
@@ -139,7 +147,7 @@ public class Umkm implements Parcelable {
         this.umkmId = in.readString();
         this.umkmName = in.readString();
         this.umkmDescription = in.readString();
-        this.umkmCategory = in.createStringArray();
+        this.umkmCategory = in.createStringArrayList();
         this.umkmAddress = in.readString();
         this.umkmImage = in.readParcelable(Uri.class.getClassLoader());
         this.imageR = in.readInt();

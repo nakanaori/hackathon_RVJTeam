@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:cursorVisible="true"
         android:hint="Hint."
-        android:inputType="text"
+        android:inputType="number"
         android:itemBackground="@color/white"
         android:padding="10dp"
         android:textColor="@color/black"
