@@ -7,6 +7,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.u_binusportal.component.UMKMListItemForLV;
 import com.u_binusportal.component.Umkm;
 import com.u_binusportal.component.User;
@@ -16,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Constant {
+    public static  StorageReference strRef = FirebaseStorage.getInstance().getReference();;
     public static FirebaseFirestore db_static = FirebaseFirestore.getInstance();
     public static User currentUser;
     public static Umkm currentUmkm;
@@ -23,7 +26,7 @@ public class Constant {
     public static ArrayList<Umkm> UmkmArrayList = new ArrayList<>();
 
     public static void updateUmkm(){
-        db_static.collection("UMKM").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db_static.collection("Umkm").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 totalUmkm.clear();
@@ -36,7 +39,7 @@ public class Constant {
                             (List<String>) list.get("category"),
                             list.getString("address"),
                             list.getString("image") == null ? null : Uri.parse(list.getString("image")),
-                            Integer.parseInt(list.getString("imgId")),
+                            list.getString("imgId") == null ? 0 : Integer.parseInt(list.getString("imgId")),
                             list.getString("userId")
                     );
                     UmkmArrayList.add(umkm);

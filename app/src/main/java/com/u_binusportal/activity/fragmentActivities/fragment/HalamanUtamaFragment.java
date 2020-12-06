@@ -14,19 +14,13 @@ import androidx.fragment.app.Fragment;
 
 import com.u_binusportal.Constant;
 import com.u_binusportal.activity.UMKMDetailsTokoTertentu;
-import com.u_binusportal.forTesting.DatabaseTestingJoe;
 import com.u_binusportal.R;
 import com.u_binusportal.adapter.UMKMListAdapter;
-import com.u_binusportal.component.UMKMListItemForLV;
-import com.u_binusportal.component.Umkm;
-
-import java.util.ArrayList;
 
 public class HalamanUtamaFragment extends Fragment {
 
     // ini nanti ambil dari database dengan umkm id
     private ListView listView;
-    private final DatabaseTestingJoe database = new DatabaseTestingJoe();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater,

@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 import com.u_binusportal.Constant;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,6 +39,18 @@ public class Umkm implements Parcelable {
         this.userID = userID;
     }
 
+    public HashMap<String, Object> storeToHash(){
+        HashMap<String, Object> hash = new HashMap<>();
+        hash.put("id",this.umkmId);
+        hash.put("name",this.umkmName);
+        hash.put("description",this.umkmDescription);
+        hash.put("address",this.umkmAddress);
+        hash.put("image",this.umkmImage == null ? null : umkmImage.toString());
+        hash.put("imageInt", this.imageR);
+        hash.put("userId",this.userID);
+        return hash;
+    }
+
     public Umkm(String umkmName, String umkmDescription, List<String> umkmCategory, String umkmAddress, Uri umkmImage, int i, String userID) {
         this.umkmId = UUID.randomUUID().toString();
         this.umkmName = umkmName;
@@ -56,7 +69,7 @@ public class Umkm implements Parcelable {
         this.umkmCategory = umkmCategory;
         this.umkmAddress = umkmAddress;
         this.umkmImage = null;
-        this.imageR = Integer.parseInt(null);
+        this.imageR = 0;
         this.userID = Constant.currentUser.getUserId();
     }
 

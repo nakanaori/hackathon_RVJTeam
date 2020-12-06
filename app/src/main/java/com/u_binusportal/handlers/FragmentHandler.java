@@ -33,11 +33,14 @@ import com.u_binusportal.component.User;
 import com.u_binusportal.forTesting.UserTesting;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 public class FragmentHandler extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private boolean umkmExists;
+    private Fragment selectedFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class FragmentHandler extends AppCompatActivity {
         botNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
+                selectedFragment = null;
                 switch(item.getItemId()) {
                     case R.id.bot_navigation_home:
                         botNav.getMenu().getItem(0).setChecked(true);
@@ -63,39 +66,8 @@ public class FragmentHandler extends AppCompatActivity {
                         break;
                     case R.id.bot_navigation_profil:
                         botNav.getMenu().getItem(2).setChecked(true);
-                        Log.v("User Sekarang",Constant.currentUser == null ? "usernya null" : "usernya gk null" + Constant.currentUser.toString());
-                        if(firebaseAuth.getCurrentUser() != null){
-                            db.collection("Users").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                @Override
-                                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    User user = new User(documentSnapshot.getString("id"),
-                                            documentSnapshot.getString("name"),
-                                            documentSnapshot.getString("email"),
-                                            documentSnapshot.getString("phoneNumber"),
-                                            documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")));
-                                    Constant.currentUser = user;
-                                }
-                            });
-                            db.collection("UMKM").document(Constant.currentUser.getUserId()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                @Override
-                                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    if(documentSnapshot.exists()){
-                                       umkmExists = true;
-                                       Constant.currentUmkm = new Umkm(documentSnapshot.getString("id"),
-                                               documentSnapshot.getString("name"),
-                                               documentSnapshot.getString("description"),
-                                               (List<String>) documentSnapshot.get("category"),
-                                               documentSnapshot.getString("address"),
-                                               documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")),
-                                               Integer.parseInt(documentSnapshot.getString("imgId")),
-                                               documentSnapshot.getString("userId")
-                                               );
-                                    }else{
-                                        umkmExists = false;
-                                    }
-                                }
-                            });
-                            if(umkmExists){
+                        if(Constant.currentUser != null){
+                            if(Constant.currentUmkm != null){
                                 selectedFragment = new UserUMKMProfileFragment();
                             }else{
                                 selectedFragment = new UserProfileFragment();
@@ -109,6 +81,8 @@ public class FragmentHandler extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {

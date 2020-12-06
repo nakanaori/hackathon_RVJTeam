@@ -2,6 +2,7 @@ package com.u_binusportal.adapter;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,10 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         txtProductName.setText(productName);
         txtProductDescription.setText(productDesciption);
         txtProductPrice.setText(Long.toString(productPrice));
-        imgProductImage.setImageResource(productImage);
+        if(productUri != null){
+            Log.v("foto",productUri.toString());
+        }
+        imgProductImage.setImageURI(productUri);
 
         return convertView;
     }

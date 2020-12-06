@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -166,9 +167,12 @@ public class RegisterUMKMActivity extends AppCompatActivity {
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh kosong");
 
-        } else if(TextUtils.getTrimmedLength(address) > 100){
+        } else if(TextUtils.getTrimmedLength(address) > 100) {
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh lebih dari 100 karakter");
+        } else if(category.getSelectedChipList().isEmpty()){
+            category.requestFocus();
+            Toast.makeText(this, "Kategori tidak boleh kosong", Toast.LENGTH_SHORT).show();
         } else {
 
             // List<Category> selectedList = (List<Category>) category.getSelectedChipList();

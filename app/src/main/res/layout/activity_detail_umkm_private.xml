@@ -18,9 +18,10 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="120dp"
+                android:id="@+id/umkmImage"
+                android:layout_width="100dp"
                 android:layout_margin="15dp"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
                 android:background="@drawable/ic_launcher_background"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
@@ -49,6 +50,7 @@
             android:text="Deskripsi (maks 100 kata)"
             android:textSize="18sp"
             android:maxLines="3"
+            android:id="@+id/deskripsiUMKM"
             android:maxLength="100" />
 
 
