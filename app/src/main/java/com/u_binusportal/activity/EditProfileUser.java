@@ -62,7 +62,7 @@ public class EditProfileUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String updatedName = editedName.getText().toString();
-                String updatedEmail = editedName.getText().toString();
+                String updatedEmail = editedEmail.getText().toString();
                 Uri updatedImage = imageUri == null ? null : Uri.parse(imageUri);
                 Constant.currentUser.setUserName(updatedName);
                 Constant.currentUser.setUserEmail(updatedEmail);
@@ -75,7 +75,7 @@ public class EditProfileUser extends AppCompatActivity {
         editedImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showImageOptionDialog();
+                getImageFromGallery();
             }
         });
     }
@@ -90,91 +90,11 @@ public class EditProfileUser extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && data != null){
+        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             imageUri = selectedImage.toString();
             editedImage.setImageURI(selectedImage);
-        }else if(requestCode == CAMERA_REQUEST && resultCode == RESULT_OK){
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            imageUri = bitmapToUriConverter(bitmap).toString();
-            editedImage.setImageBitmap(bitmap);
         }
-    }
-
-    public Uri bitmapToUriConverter(Bitmap mBitmap) {
-        Uri uri = null;
-        try {
-            final BitmapFactory.Options options = new BitmapFactory.Options();
-            // Calculate inSampleSize
-            options.inSampleSize = calculateInSampleSize(options, 100, 100);
-
-            // Decode bitmap with inSampleSize set
-            options.inJustDecodeBounds = false;
-            Bitmap newBitmap = Bitmap.createScaledBitmap(mBitmap, 200, 200,
-                    true);
-            File file = new File(this.getFilesDir(), "Image"
-                    + new Random().nextInt() + ".jpeg");
-            FileOutputStream out = this.openFileOutput(file.getName(),
-                    Context.MODE_WORLD_READABLE);
-            newBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
-            out.close();
-            //get absolute path
-            String realPath = file.getAbsolutePath();
-            File f = new File(realPath);
-            uri = Uri.fromFile(f);
-
-        } catch (Exception e) {
-            Log.e("Your Error Message", e.getMessage());
-        }
-        return uri;
-    }
-
-
-    public static int calculateInSampleSize(
-            BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-        if (height > reqHeight || width > reqWidth) {
-
-            final int halfHeight = height / 2;
-            final int halfWidth = width / 2;
-
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) >= reqHeight
-                    && (halfWidth / inSampleSize) >= reqWidth) {
-                inSampleSize *= 2;
-            }
-        }
-
-        return inSampleSize;
-    }
-
-    private void showImageOptionDialog(){
-        final String[] options = getResources().getStringArray(R.array.image_options);
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.alert_dialog_title)
-                .setItems(options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        switch (which){
-                            case 0:
-                                getImageFromGallery();
-                                break;
-                            case 1:
-                                capturePictureFromCamera();
-                                break;
-                        }
-                    }
-                });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     private void capturePictureFromCamera(){
