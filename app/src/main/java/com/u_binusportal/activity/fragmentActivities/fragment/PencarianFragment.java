@@ -74,7 +74,6 @@ public class PencarianFragment extends Fragment {
         } else {
             queryUser = dicari;
         }
-        Constant.updateUmkm();
         // mulai cari dari sini
         ArrayList<Umkm> d_Umkm = Constant.UmkmArrayList;
         ArrayList<Umkm> toBeShown = new ArrayList<>();

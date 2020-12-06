@@ -50,9 +50,6 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         txtProductName.setText(productName);
         txtProductDescription.setText(productDesciption);
         txtProductPrice.setText(Long.toString(productPrice));
-        if(productUri != null){
-            Log.v("foto",productUri.toString());
-        }
         imgProductImage.setImageURI(productUri);
 
         return convertView;

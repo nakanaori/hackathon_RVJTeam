@@ -33,8 +33,6 @@ public class HalamanUtamaFragment extends Fragment {
     private void inisialisasi(View v) {
         ListView listview = (ListView) v.findViewById(R.id.list_view_hu);
 
-        Constant.updateUmkm();
-
         final UMKMListAdapter adapter = new UMKMListAdapter(getActivity(), R.layout.custom_list_item_home, Constant.UmkmArrayList);
         listview.setAdapter(adapter);
 //         INI NANTI NGEDIRECT KE PROFIL UMKM TERTENTU

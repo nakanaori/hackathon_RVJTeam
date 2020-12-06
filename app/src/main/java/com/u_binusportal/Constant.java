@@ -1,6 +1,7 @@
 package com.u_binusportal;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,15 +23,15 @@ public class Constant {
     public static FirebaseFirestore db_static = FirebaseFirestore.getInstance();
     public static User currentUser;
     public static Umkm currentUmkm;
-    public static HashMap<String, Umkm> totalUmkm = new HashMap<>();
-    public static ArrayList<Umkm> UmkmArrayList = new ArrayList<>();
+    public static HashMap<String, Umkm> totalUmkm;
+    public static ArrayList<Umkm> UmkmArrayList;
 
     public static void updateUmkm(){
         db_static.collection("Umkm").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                totalUmkm.clear();
-                UmkmArrayList.clear();
+                totalUmkm = new HashMap<>();
+                UmkmArrayList = new ArrayList<>();
                 List<DocumentSnapshot> lists = queryDocumentSnapshots.getDocuments();
                 for(DocumentSnapshot list : lists){
                     Umkm umkm = new Umkm(list.getString("id"),
@@ -42,6 +43,7 @@ public class Constant {
                             list.getString("imgId") == null ? 0 : Integer.parseInt(list.getString("imgId")),
                             list.getString("userId")
                     );
+                    Log.v("Konstan","test" + umkm.getUmkmId());
                     UmkmArrayList.add(umkm);
                     totalUmkm.put(list.getString("userId"), umkm);
                 }

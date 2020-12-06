@@ -16,7 +16,6 @@ import com.u_binusportal.component.Umkm;
 
 import java.util.ArrayList;
 
-
 // class ini akan dipakai untuk halaman utama dan pencarian
 
 public class UMKMListAdapter extends ArrayAdapter<Umkm> {

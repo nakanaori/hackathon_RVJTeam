@@ -96,6 +96,19 @@ public class EditProduct extends AppCompatActivity {
                             });
                         }
                     });
+                } else {
+                    HashMap<String, Object> hash = storeToHashmap(newProd);
+                    db.collection("Produk").document(Constant.currentUmkm.getUmkmId())
+                            .collection("UMKMProduk")
+                            .document(newProd.getProductId())
+                            .set(hash)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(EditProduct.this, "Produk ditambahkan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    finish();
                 }
 
             }
