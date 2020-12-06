@@ -68,7 +68,8 @@ public class EditProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Product newProd = getProductInserted();
-                if(newProd.getImgURI() != null){
+                int valid = validate(newProd);
+                if(valid != 0){
                     final StorageReference productRef = Constant.strRef.child("Product_" + newProd.getProductId());
                     productRef.putFile(newProd.getImgURI()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -76,6 +77,7 @@ public class EditProduct extends AppCompatActivity {
                             productRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+
                                     editedUri = uri;
                                     newProd.setImgURI(editedUri);
                                     HashMap<String, Object> hash = storeToHashmap(newProd);
@@ -109,7 +111,6 @@ public class EditProduct extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ini logic delete product umkm tersebut
             final String name = deleteProductName.getText().toString();
             db.collection("Produk").document(Constant.currentUmkm.getUmkmId()).collection("UMKMProduct").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
@@ -133,6 +134,12 @@ public class EditProduct extends AppCompatActivity {
             });
             }
         });
+    }
+
+    private int validate(Product product) {
+        return (product.getProductName()!=null
+                && product.getProductPrice()!=0
+                && product.getProductDescription()!=null) ? 1 : 0;
     }
 
 
