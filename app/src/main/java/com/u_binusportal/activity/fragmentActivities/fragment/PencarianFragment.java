@@ -16,10 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.u_binusportal.Constant;
 import com.u_binusportal.activity.UMKMDetailsTokoTertentu;
-import com.u_binusportal.forTesting.DatabaseTestingJoe;
 import com.u_binusportal.R;
 import com.u_binusportal.adapter.UMKMListAdapter;
-import com.u_binusportal.component.UMKMListItemForLV;
 import com.u_binusportal.component.Umkm;
 
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class PencarianFragment extends Fragment {
     private ImageButton searchButton;
     private ListView listview;
 
-    private final DatabaseTestingJoe database = new DatabaseTestingJoe();
     private String queryUser;
     private UMKMListAdapter adapter; // adapter
 
