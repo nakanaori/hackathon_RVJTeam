@@ -37,7 +37,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         preferences = MainActivity.this.getSharedPreferences("everLogged", MODE_PRIVATE);
         Constant.updateUmkm();
-        userIsLogin();
+        if(firebaseAuth.getCurrentUser() != null){
+            userIsLogin();
+        }
+        if(preferences.getBoolean("ever_logged_in",true)){
+            //pertama kali menggunakan app ini
+            startActivity(new Intent(MainActivity.this, InfoAppPageHandler.class));
+            preferences.edit().putBoolean("ever_logged_in",false).apply();
+        } else{
+            setContentView(R.layout.group_fragment);
+            call();
+        }
     }
     public void call() {
         Intent i = new Intent(this, FragmentHandler.class );
@@ -76,14 +86,6 @@ public class MainActivity extends AppCompatActivity {
                                     documentSnapshot.getString("imgId") == null ? 0 : Integer.parseInt(documentSnapshot.getString("imgId")),
                                     documentSnapshot.getString("userId")
                             );
-                        }
-                        if(preferences.getBoolean("ever_logged_in",true)){
-                            //pertama kali menggunakan app ini
-                            startActivity(new Intent(MainActivity.this, InfoAppPageHandler.class));
-                            preferences.edit().putBoolean("ever_logged_in",false).apply();
-                        } else{
-                            setContentView(R.layout.group_fragment);
-                            call();
                         }
                     }
                 });
