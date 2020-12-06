@@ -44,6 +44,7 @@ public class UserProfileFragment extends Fragment {
         MoreInformation = rootView.findViewById(R.id.menu_information);
 
         Name.setText(Constant.currentUser.getUserName());
+        PhoneNumber.setText(Constant.currentUser.getUserTelephoneNumber());
 
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
