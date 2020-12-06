@@ -32,6 +32,8 @@ import com.u_binusportal.component.Umkm;
 import com.u_binusportal.component.User;
 import com.u_binusportal.forTesting.UserTesting;
 
+import java.util.List;
+
 public class FragmentHandler extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -74,7 +76,7 @@ public class FragmentHandler extends AppCompatActivity {
                                     Constant.currentUser = user;
                                 }
                             });
-                            db.collection("UMKM").document(firebaseAuth.getCurrentUser().getPhoneNumber()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            db.collection("UMKM").document(Constant.currentUser.getUserId()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
@@ -82,7 +84,7 @@ public class FragmentHandler extends AppCompatActivity {
                                        Constant.currentUmkm = new Umkm(documentSnapshot.getString("id"),
                                                documentSnapshot.getString("name"),
                                                documentSnapshot.getString("description"),
-                                               (String[]) documentSnapshot.get("category"),
+                                               (List<String>) documentSnapshot.get("category"),
                                                documentSnapshot.getString("address"),
                                                documentSnapshot.getString("image") == null ? null : Uri.parse(documentSnapshot.getString("image")),
                                                Integer.parseInt(documentSnapshot.getString("imgId")),

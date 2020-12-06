@@ -12,6 +12,15 @@ public class Product {
     private Uri imgURI;
     private String umkmId;
 
+    public Product(String productId, String productName, String productDescription, long productPrice, int productImage, Uri imgURI, String umkmId) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+        this.productImage = productImage;
+        this.imgURI = imgURI;
+        this.umkmId = umkmId;
+    }
 
     public Product(String productName, String productDescription, long productPrice,
                    Uri ImageURI, int productImage, String umkmID) {

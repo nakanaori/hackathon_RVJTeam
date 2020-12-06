@@ -43,6 +43,8 @@ public class UserProfileFragment extends Fragment {
         LogOut = rootView.findViewById(R.id.menu_logout);
         MoreInformation = rootView.findViewById(R.id.menu_information);
 
+        Name.setText(Constant.currentUser.getUserName());
+
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

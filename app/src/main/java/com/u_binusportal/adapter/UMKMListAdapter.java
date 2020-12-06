@@ -12,11 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.u_binusportal.R;
-import com.u_binusportal.component.UMKMListItemForLV;
 import com.u_binusportal.component.Umkm;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 // class ini akan dipakai untuk halaman utama dan pencarian
 
@@ -25,10 +24,10 @@ public class UMKMListAdapter extends ArrayAdapter<Umkm> {
     private Context c;
     private ArrayList<Umkm> item;
 
-    public UMKMListAdapter(@NonNull Context context, @NonNull ArrayList<Umkm> objects) {
-        super(context, R.layout.custom_list_item_home, objects);
+    public UMKMListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Umkm> item) {
+        super(context, resource);
         this.c = context;
-        this.item = objects;
+        this.item = item;
     }
 
     public Umkm getItem(int position){

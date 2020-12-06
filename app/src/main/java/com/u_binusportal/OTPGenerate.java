@@ -150,13 +150,7 @@ public class OTPGenerate extends AppCompatActivity {
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if(!documentSnapshot.exists()){
                                 User newUser = new User(name, email, phoneNumber,null);
-                                Map<String, Object> res = new HashMap<>();
-                                res.put("id",newUser.getUserId());
-                                res.put("name",newUser.getUserName());
-                                res.put("email", newUser.getUserEmail());
-                                res.put("image", newUser.getUserImage() == null ? null : newUser.getUserImage().toString());
-                                res.put("phoneNumber",newUser.getUserTelephoneNumber());
-                                db.collection("Users").document(phoneNumber).set(res);
+                                db.collection("Users").document(phoneNumber).set(newUser.storeToHash());
                                 Constant.currentUser = newUser;
                             } else {
                                 User user = new User(documentSnapshot.getString("id"),

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.u_binusportal.Constant;
 import com.u_binusportal.activity.UMKMDetailsTokoTertentu;
 import com.u_binusportal.forTesting.DatabaseTestingJoe;
 import com.u_binusportal.R;
@@ -62,6 +63,8 @@ public class PencarianFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), UMKMDetailsTokoTertentu.class);
+                intent.putExtra("umkm",Constant.totalUmkm.get(adapter.getItem(i).getUserID()));
                 startActivity(new Intent(getActivity(), UMKMDetailsTokoTertentu.class));
             }
         });
@@ -74,13 +77,13 @@ public class PencarianFragment extends Fragment {
         } else {
             queryUser = dicari;
         }
-
+        Constant.updateUmkm();
         // mulai cari dari sini
-        ArrayList<Umkm> d_Umkm = database.getUmkm();
+        ArrayList<Umkm> d_Umkm = Constant.UmkmArrayList;
         ArrayList<Umkm> toBeShown = new ArrayList<>();
 
         if(queryUser.isEmpty() || queryUser.equals("")) {
-            adapter = new UMKMListAdapter(getActivity(), new ArrayList<Umkm>());
+            adapter = new UMKMListAdapter(getActivity(), R.layout.custom_list_item_home, new ArrayList<Umkm>());
             listview.setAdapter(adapter);
             return;
         }
@@ -103,12 +106,12 @@ public class PencarianFragment extends Fragment {
 
             String temp[] = queryUser.split(" ");
             int len = temp.length;
-            int len2 = x.getUmkmCategory().length;
+            int len2 = x.getUmkmCategory().size();
             boolean flag = false;
 
             for (String s : temp) {
-                for (int j = 0; j < len2; j++) {
-                    if (x.getUmkmCategory()[j].toLowerCase().contains(s)) {
+                for (String category : currentUmkm.getUmkmCategory()) {
+                    if (category.toLowerCase().contains(s)) {
                         toBeShown.add(x);
                         flag = true;
                         break;
@@ -119,8 +122,9 @@ public class PencarianFragment extends Fragment {
 
         }
 
-        adapter = new UMKMListAdapter(getActivity(), toBeShown);
-        listview.setAdapter(adapter); return;
+        adapter = new UMKMListAdapter(getActivity(), R.layout.custom_list_item_home, toBeShown);
+        listview.setAdapter(adapter);
+        return;
     }
 
 }
