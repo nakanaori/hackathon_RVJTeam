@@ -100,12 +100,11 @@ public class EditProduct extends AppCompatActivity {
                         }
                     });
                 } else {
-
-                    HashMap<String, Object> hash = storeToHashmap(newProd);
+                    HashMap<String, Object> hash2 = storeToHashmap(newProd);
                     db.collection("Produk").document(Constant.currentUmkm.getUmkmId())
                             .collection("UMKMProduk")
                             .document(newProd.getProductId())
-                            .set(hash)
+                            .set(hash2)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -129,14 +128,14 @@ public class EditProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             final String name = deleteProductName.getText().toString();
-            db.collection("Produk").document(Constant.currentUmkm.getUmkmId()).collection("UMKMProduct").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            db.collection("Produk").document(Constant.currentUmkm.getUmkmId()).collection("UMKMProduk").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     if(!queryDocumentSnapshots.isEmpty()){
                         List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
                         for(DocumentSnapshot document : snapshotList){
                             if(document.getString("name").toLowerCase().equals(name.toLowerCase())){
-                                db.collection("Produk").document(Constant.currentUmkm.getUmkmId()).collection("UMKMProduct").document(document.getString("id")).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                db.collection("Produk").document(Constant.currentUmkm.getUmkmId()).collection("UMKMProduk").document(document.getString("id")).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(EditProduct.this, "Produk telah dihapus", Toast.LENGTH_SHORT).show();
