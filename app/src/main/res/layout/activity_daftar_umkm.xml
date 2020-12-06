@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_with_stroke">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
     <TextView
+        android:id="@+id/newTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Daftar UMKM"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
         android:layout_marginVertical="60dp"
-        android:textColor="@color/black" />
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="Daftar UMKM"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/addUmkmName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama UMKM"
         android:layout_marginHorizontal="20dp"
-        android:id="@+id/addUmkmName"
-        android:layout_marginVertical="10dp" />
+        android:layout_marginVertical="10dp"
+        android:layout_marginTop="80dp"
+        android:hint="Nama UMKM"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newTv" />
 
     <EditText
         android:layout_width="match_parent"
@@ -35,7 +41,11 @@
         android:hint="Alamat UMKM"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/addUmkmAddress"
-        android:layout_marginVertical="10dp" />
+        android:layout_marginVertical="10dp"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addUmkmName"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -43,29 +53,55 @@
         android:hint="Deskripsi UMKM"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/addUmkmDescription"
-        android:layout_marginVertical="10dp" />
-
-    <com.pchmn.materialchips.ChipsInput
-        android:id="@+id/addUmkmCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        app:hint="Kategori"
-        app:chip_hasAvatarIcon="false"
-        />
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addUmkmAddress"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Daftar"
-        android:id="@+id/registerUmkm"
-        android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/green"/>
+<!--        <com.pchmn.materialchips.ChipsInput-->
+<!--            android:id="@+id/addUmkmCategory"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            android:layout_marginVertical="10dp"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="60dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            app:chip_hasAvatarIcon="false"-->
+<!--            app:hint="Kategori"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_categories_regUMKM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:hint="Categories"
+            android:gravity="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addUmkmDescription" />
 
-</ScrollView>
+        <Button
+            android:id="@+id/registerUmkm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@color/green"
+            android:text="Daftar"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_categories_regUMKM" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

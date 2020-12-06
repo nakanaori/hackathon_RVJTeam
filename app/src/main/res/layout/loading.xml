@@ -17,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/applogo"
-        android:onClick="toFragment"/>
+        android:onClick="toFragment"
+        android:scaleType="centerInside"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

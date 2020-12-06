@@ -28,6 +28,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/house_removebg" />
+        app:srcCompat="@drawable/house_removebg"
+        android:scaleType="centerInside"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
