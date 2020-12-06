@@ -13,32 +13,31 @@
         android:layout_margin="10dp"
         android:id="@id/faq">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/newBlue"
-        android:id="@+id/faqHeader"
-        android:padding="5dp"
-        >
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/faq_icon"
-            android:id="@+id/faqIcon"
-            android:scaleType="centerInside"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pertanyaan yang sering ditanyakan"
-            android:layout_toEndOf="@+id/faqIcon"
-            android:layout_toRightOf="@+id/faqIcon"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            />
-    </RelativeLayout>
+            android:background="@color/newBlue"
+            android:id="@+id/faqHeader"
+            android:padding="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/faqIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/faq_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/faqIcon"
+                android:layout_toRightOf="@+id/faqIcon"
+                android:text="Pertanyaan yang sering ditanyakan"
+                android:textSize="16sp" />
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,10 +46,15 @@
             android:background="@color/newBlue">
 
             <TextView
+                android:id="@+id/qna"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+
+                android:text="Q : Bagaimana cara saya melakukan transaksi dengan penjual?\nA : Anda dapat menghubungi nomor UMKM tertera untuk info lebih lanjut\n\nQ : Bagaimana cara saya mendaftarkan UMKM milik saya?\nA : Anda dapat pergi ke halaman profile lalu tekan menu Daftar UMKM\n\nQ : Bagaimana cara saya mengubah data pribadi saya?\nA : Anda dapat pergi ke halaman profile lalu tekan menu Edit Profil"
+                android:textAlignment="gravity"
+                android:textSize="14sp" />
+
+
         </RelativeLayout>
     </RelativeLayout>
 
@@ -60,33 +64,32 @@
         android:layout_below="@+id/faq"
         android:layout_margin="10dp"
         android:id="@+id/suggestion">
-    <RelativeLayout
-        android:padding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/suggestionHeader"
-        android:background="@color/newBlue"
-        >
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/suggestion_icon"
-            android:id="@+id/suggestionIcon"
-            android:scaleType="centerInside"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kritik dan saran"
-            android:layout_toEndOf="@+id/suggestionIcon"
-            android:layout_toRightOf="@+id/suggestionIcon"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            />
+            android:id="@+id/suggestionHeader"
+            android:background="@color/newBlue"
+            >
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/suggestionIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/suggestion_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/suggestionIcon"
+                android:layout_toRightOf="@+id/suggestionIcon"
+                android:text="Kritik dan saran"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,8 +100,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+                android:text="E-mail : ubinus.portal@gmail.com"
+                android:textSize="14sp" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -109,33 +112,33 @@
         android:id="@+id/contactUs"
         android:layout_margin="10dp">
 
-    <RelativeLayout
-        android:padding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/newBlue"
-        android:id="@+id/contactUsHeader"
-        >
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/contact_us_icon"
-            android:id="@+id/contactUsIcon"
-            android:scaleType="centerInside"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hubungi kami"
-            android:layout_toEndOf="@+id/contactUsIcon"
-            android:layout_toRightOf="@+id/contactUsIcon"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            />
+            android:background="@color/newBlue"
+            android:id="@+id/contactUsHeader"
+            >
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/contactUsIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/mail_icon"
+                tools:srcCompat="@drawable/mail_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/contactUsIcon"
+                android:layout_toRightOf="@+id/contactUsIcon"
+                android:text="Hubungi kami"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,8 +149,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+                android:text="E-mail : ubinus.portal@gmail.com"
+                android:textSize="14sp" />
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

@@ -38,7 +38,6 @@ public class RegisterUMKMActivity extends AppCompatActivity {
     private EditText UMKMNameField;
     private EditText AddressField;
     private EditText DescriptionField;
-    private ChipsInput category;
     private TextView trigger;
     private Button RegisterUMKMButton;
     private ProgressDialog Progress;
@@ -56,22 +55,6 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         RegisterUMKMButton = findViewById(R.id.registerUmkm);
 
         Progress = new ProgressDialog(this);
-
-//        category = findViewById(R.id.addUmkmCategory);
-//        ArrayList<com.u_binusportal.component.Category> categoryList = new ArrayList<>();
-//        categoryList.add(new Category("C001","Makanan"));
-//        categoryList.add(new Category("C002","Minuman"));
-//        categoryList.add(new Category("C003","Pakaian"));
-//        categoryList.add(new Category("C004","Hobi"));
-//        categoryList.add(new Category("C005","Kosmetik"));
-//        categoryList.add(new Category("C006","Pertanian"));
-//        categoryList.add(new Category("C007","Elektronik"));
-//        categoryList.add(new Category("C008","Perabotan Rumah Tangga"));
-//        categoryList.add(new Category("C009","Jasa"));
-//        categoryList.add(new Category("C010","Survernir"));
-//        categoryList.add(new Category("C011","Kesehatan"));
-//        categoryList.add(new Category("C012","Lain-lain"));
-//        category.setFilterableList(categoryList);
 
         trigger = findViewById(R.id.tv_categories_regUMKM);
 
@@ -107,14 +90,13 @@ public class RegisterUMKMActivity extends AppCompatActivity {
                         tempSelected.clear();
                         trigger.setText("");
                         for (int idx : selectedCategory) {
-                            res = res + categories[idx];
-                            if(idx == selectedCategory.get(selectedCategory.size()-1)) break;
-                            res = res + ", ";
-
                             // ini refresh category terpilih
                             if(tempSelected.isEmpty()) tempSelected.add(categories[idx]);
                             if(!tempSelected.contains(categories[idx]))
                                 tempSelected.add(categories[idx]);
+                            res = res + categories[idx];
+                            if(idx == selectedCategory.get(selectedCategory.size()-1)) break;
+                            res = res + ", ";
                         }
                         trigger.setText(res);
                     }
@@ -170,8 +152,7 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         } else if(TextUtils.getTrimmedLength(address) > 100) {
             AddressField.requestFocus();
             AddressField.setError("Alamat tidak boleh lebih dari 100 karakter");
-        } else if(category.getSelectedChipList().isEmpty()){
-            category.requestFocus();
+        } else if(cat.isEmpty()){
             Toast.makeText(this, "Kategori tidak boleh kosong", Toast.LENGTH_SHORT).show();
         } else {
 
@@ -197,8 +178,6 @@ public class RegisterUMKMActivity extends AppCompatActivity {
         newHash.put("address", currentUmkm.getUmkmAddress());
         newHash.put("category", currentUmkm.getUmkmCategory());
         newHash.put("userId", currentUmkm.getUserID());
-
-        // ini udah diwrap di constructor baru sebagai null
         newHash.put("image", currentUmkm.getUmkmImage());
         newHash.put("imageInt", currentUmkm.getImageR());
         return newHash;
