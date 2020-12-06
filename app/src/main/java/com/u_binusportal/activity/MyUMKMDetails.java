@@ -58,8 +58,7 @@ public class MyUMKMDetails extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplication(), EditProfileUMKM.class);
-                startActivity(i);
+               move();
             }
         });
 
@@ -91,6 +90,11 @@ public class MyUMKMDetails extends AppCompatActivity {
 
 
     }
+
+    private void move() {
+        startActivity(new Intent(getApplication(), EditProfileUMKM.class));
+    }
+
 
 
 }

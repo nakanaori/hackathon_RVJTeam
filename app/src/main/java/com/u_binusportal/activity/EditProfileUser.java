@@ -97,9 +97,4 @@ public class EditProfileUser extends AppCompatActivity {
         }
     }
 
-    private void capturePictureFromCamera(){
-        Intent cameraIntent = new Intent();
-        cameraIntent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_REQUEST);
-    }
 }

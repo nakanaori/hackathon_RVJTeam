@@ -43,6 +43,7 @@ public class UserUMKMProfileFragment extends Fragment {
         MoreInformation = rootView.findViewById(R.id.menu_information2);
 
         Name.setText(Constant.currentUser.getUserName());
+        PhoneNumber.setText(Constant.currentUser.getUserTelephoneNumber());
 
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override

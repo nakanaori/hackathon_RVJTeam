@@ -90,6 +90,14 @@ public class EditProfileUMKM extends AppCompatActivity {
         final ArrayList<Integer> selectedCategory = new ArrayList<>();
         final List<String> tempSelected = new ArrayList<>();
 
+        try{
+            String res = make(Constant.currentUmkm.getUmkmCategory());
+            trigger.setHint(res);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         trigger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +168,16 @@ public class EditProfileUMKM extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private String make(List<String> list) {
+        String res = "";
+        for (String idx : list) {
+            res = res + idx;
+            if(idx == list.get(list.size()-1)) break;
+            res = res + ", ";
+        }
+        return res;
     }
 
     private void getImageFromGallery() {
