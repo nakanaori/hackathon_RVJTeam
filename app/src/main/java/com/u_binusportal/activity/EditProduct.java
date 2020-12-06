@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,9 +68,11 @@ public class EditProduct extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int valid = validateAddProduct();
+                if(valid == 0) return;
                 final Product newProd = getProductInserted();
-                int valid = validate(newProd);
-                if(valid != 0){
+
+                if(newProd.getImgURI() != null) {
                     final StorageReference productRef = Constant.strRef.child("Product_" + newProd.getProductId());
                     productRef.putFile(newProd.getImgURI()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -97,6 +100,7 @@ public class EditProduct extends AppCompatActivity {
                         }
                     });
                 } else {
+
                     HashMap<String, Object> hash = storeToHashmap(newProd);
                     db.collection("Produk").document(Constant.currentUmkm.getUmkmId())
                             .collection("UMKMProduk")
@@ -155,6 +159,20 @@ public class EditProduct extends AppCompatActivity {
                 && product.getProductDescription()!=null) ? 1 : 0;
     }
 
+    private int validateAddProduct() {
+        String name = addProductName.getText().toString().trim();
+        String price = addProductPrice.getText().toString().trim();
+
+        if (TextUtils.isEmpty(name)) {
+            addProductName.requestFocus();
+            addProductName.setError("Nama produk tidak boleh kosong");
+            return 0;
+        }else if (TextUtils.isEmpty(price)) {
+            addProductPrice.requestFocus();
+            addProductPrice.setError("Harga tidak boleh kosong");
+            return 0;
+        } else return 1;
+    }
 
 
     @Override
@@ -176,7 +194,8 @@ public class EditProduct extends AppCompatActivity {
 
     private Product getProductInserted() {
         String pName = this.addProductName.getText().toString();
-        String pDesc = this.addProductDesc.getText().toString();
+        String pDesc = addProductDesc == null ? null :
+                this.addProductDesc.getText().toString();
         long pPrice = Long.parseLong(this.addProductPrice.getText().toString());
         String umkmID = Constant.currentUmkm.getUmkmId();
         int imageResources = 0;
