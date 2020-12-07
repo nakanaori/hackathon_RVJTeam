@@ -92,63 +92,10 @@ public class EditProfileUMKM extends AppCompatActivity {
 
         try{
             String res = make(Constant.currentUmkm.getUmkmCategory());
-            trigger.setHint(res);
+            trigger.setText(res);
         }catch (Exception e) {
             e.printStackTrace();
         }
-
-
-        trigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final android.app.AlertDialog.Builder dialog_cat = new android.app.AlertDialog.Builder(EditProfileUMKM.this);
-                dialog_cat.setTitle("Choose any categories");
-                dialog_cat.setMultiChoiceItems(categories, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
-                        if(isChecked) {
-                            if(!selectedCategory.contains(position)) {
-                                selectedCategory.add(position);
-                            } else {
-                                selectedCategory.remove(position);
-                            }
-                        }
-                    }
-                });
-
-                dialog_cat.setCancelable(false);
-                dialog_cat.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String res = "";
-                        tempSelected.clear();
-                        trigger.setText("");
-                        for (int idx : selectedCategory) {
-                            // ini refresh category terpilih
-                            if(tempSelected.isEmpty()) tempSelected.add(categories[idx]);
-                            if(!tempSelected.contains(categories[idx]))
-                                tempSelected.add(categories[idx]);
-                            res = res + categories[idx];
-                            if(idx == selectedCategory.get(selectedCategory.size()-1)) break;
-                            res = res + ", ";
-                        }
-                        trigger.setText(res);
-                    }
-                });
-
-                dialog_cat.setNegativeButton("Return", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-
-                android.app.AlertDialog mDialog = dialog_cat.create();
-                mDialog.show();
-            }
-        });
-
-        final List<String> listOfSelectedCategory = new ArrayList<>(tempSelected);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,11 +107,8 @@ public class EditProfileUMKM extends AppCompatActivity {
                 Constant.currentUmkm.setUmkmName(name);
                 Constant.currentUmkm.setUmkmAddress(address);
                 Constant.currentUmkm.setUmkmDescription(description);
-                Constant.currentUmkm.setUmkmCategory(listOfSelectedCategory == null
-                        ? Constant.currentUmkm.getUmkmCategory() : listOfSelectedCategory);
                 Constant.currentUmkm.setUmkmImage(imageUri == null ? null : Uri.parse(imageUri));
                 db.collection("Umkm").document(Constant.currentUser.getUserId()).set(Constant.currentUmkm.storeToHash());
-                // update
                 finish();
             }
         });
