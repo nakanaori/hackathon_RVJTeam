@@ -73,6 +73,17 @@ public class Umkm implements Parcelable {
         this.userID = Constant.currentUser.getUserId();
     }
 
+    public Umkm(String name, String umkmDescription, String umkmAddress, List<String> umkmCategory, Uri umkmImage) {
+        this.umkmId = UUID.randomUUID().toString();
+        this.umkmName = name;
+        this.umkmDescription = umkmDescription;
+        this.umkmCategory = umkmCategory;
+        this.umkmAddress = umkmAddress;
+        this.umkmImage = umkmImage;
+        this.imageR = 0;
+        this.userID = UUID.randomUUID().toString();
+    }
+
     public String getUserID() {
         return userID;
     }
@@ -129,11 +140,11 @@ public class Umkm implements Parcelable {
         this.imageR = i;
     }
 
-    private String traverse(String [] x) {
+    private String traverse(List<String> x) {
         String res = "";
-        int y = x.length;
+        int y = x.size();
         for(int i=0; i<y; i++) {
-            res += x[i];
+            res += x.get(i);
             if(i != y-1) res += ", "; else res += " ";
         }
         return res;
@@ -154,6 +165,12 @@ public class Umkm implements Parcelable {
         dest.writeParcelable(this.umkmImage, flags);
         dest.writeInt(this.imageR);
         dest.writeString(this.userID);
+    }
+
+    public UMKMListItemForLV convertToBeShownInLV() {
+        String category = "Kategori: " + traverse(umkmCategory);
+        UMKMListItemForLV item = new UMKMListItemForLV(this.umkmName, category, this.umkmImage, this.imageR);
+        return item;
     }
 
     protected Umkm(Parcel in) {
