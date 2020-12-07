@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/imgUser"
-            android:id="@+id/namaUMKM"
+            android:id="@+id/namaUMKMPrivate"
             android:text="Nama UMKM"
             android:textSize="22sp"/>
 
@@ -46,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_below="@id/namaUMKM"
+            android:layout_below="@id/namaUMKMPrivate"
             android:text="Deskripsi (maks 100 kata)"
             android:textSize="18sp"
             android:maxLines="3"
-            android:id="@+id/deskripsiUMKM"
+            android:id="@+id/deskripsiUMKMPrivate"
             android:maxLength="100" />
 
 

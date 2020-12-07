@@ -43,6 +43,7 @@
                     android:text="Deskripsi (maks 100 kata)"
                     android:textSize="18sp"
                     android:maxLines="3"
+                    android:id="@+id/deskripsiUMKM"
                     android:maxLength="100"
 
                 />

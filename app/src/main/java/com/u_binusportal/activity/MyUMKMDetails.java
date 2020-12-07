@@ -47,8 +47,8 @@ public class MyUMKMDetails extends AppCompatActivity {
         setContentView(R.layout.activity_detail_umkm_private);
         productListView = (ListView)findViewById(R.id.listviewproduk);
         buttonEdit = (Button)findViewById(R.id.btnUbah);
-        name = (TextView)findViewById((R.id.namaUMKM));
-        description = (TextView) findViewById(R.id.deskripsiUMKM);
+        name = (TextView)findViewById((R.id.namaUMKMPrivate));
+        description = (TextView) findViewById(R.id.deskripsiUMKMPrivate);
         image = (ImageView)findViewById(R.id.umkmImage);
         Log.v("test","name" + name == null ?  "null" : "gk null");
         name.setText(Constant.currentUmkm.getUmkmName());
