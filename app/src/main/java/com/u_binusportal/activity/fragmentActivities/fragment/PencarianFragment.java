@@ -63,7 +63,9 @@ public class PencarianFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getActivity(), UMKMDetailsTokoTertentu.class));
+                Intent j = new Intent(getActivity(), UMKMDetailsTokoTertentu.class);
+                j.putExtra("umkm",adapter.getItem(i));
+                startActivity(j);
             }
         });
     }
